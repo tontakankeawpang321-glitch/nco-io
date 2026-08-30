@@ -1,0 +1,6 @@
+{
+  "name": "Prep Pass - ศูนย์รวมข้อสอบ นนส. / นสต.",
+  "description": "แอปเตรียมสอบนายสิบทหารบก (นนส.) และนายสิบตำรวจ (นสต.) ระบบสุ่มข้อสอบ สแกนโจทย์ AI คลังหนังสือ PDF คลิปสรุปติวสั้น กระดาษทดและเครื่องคิดเลข และกระดานชุมชน",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
