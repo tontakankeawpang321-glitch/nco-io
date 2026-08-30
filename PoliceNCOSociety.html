@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>สังคม วัฒนธรรม & จริยธรรม (นสต. ตำรวจ) - ติวเข้ม & คลังข้อสอบ 100 ข้อ (Offline Mode)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --primary-light: #eff6ff;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --border-focus: #cbd5e1;
+      --success: #10b981;
+      --success-bg: #ecfdf5;
+      --success-border: #a7f3d0;
+      --danger: #ef4444;
+      --danger-bg: #fef2f2;
+      --danger-border: #fecaca;
+      --warning: #f59e0b;
+      --warning-bg: #fffbeb;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Prompt", "Sarabun", -apple-system, BlinkMacSystemFont, sans-serif; }
+    
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 120px; /* ให้พื้นที่ว่างด้านล่างมากพอ ไม่ให้แถบลอยบังปุ่ม */
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Header & Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: white;
+      padding: 16px 14px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+    .hero-container {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 2px;
+    }
+    .hero h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+    .hero p {
+      font-size: 0.78rem;
+      opacity: 0.92;
+      font-weight: 500;
+    }
+
+    /* Top Navigation Tabs - Compact & Clean */
+    .nav-tabs-wrapper {
+      position: sticky;
+      top: 68px;
+      z-index: 35;
+      background: rgba(248, 250, 252, 0.92);
+      backdrop-filter: blur(10px);
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-tabs {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      gap: 6px;
+    }
+    .tab-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 7px 6px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      box-shadow: var(--shadow-sm);
+      white-space: nowrap;
+    }
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+    }
+    .tab-btn:hover:not(.active) {
+      background: #f1f5f9;
+      color: var(--text-main);
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 14px auto 0;
+      padding: 0 12px;
+    }
+
+    /* Tab Panes */
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; animation: fadeIn 0.22s ease-out; }
+
+    /* Original Content Styles */
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .formula-badge, .law-box, .word-box {
+      background: var(--primary-light);
+      border: 1px solid rgba(0,0,0,0.06);
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      color: var(--primary-dark);
+      line-height: 1.5;
+    }
+    .formula-title { font-weight: 800; color: var(--primary-dark); margin-bottom: 2px; }
+    .word-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+    .quiz-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+    .quiz-q { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; color: var(--text-main); }
+    .toggle-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .toggle-btn:hover { opacity: 0.9; }
+    .quiz-ans {
+      font-size: 0.82rem;
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      padding: 8px 10px;
+      border-radius: 8px;
+      display: none;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    /* 100-Question Header Controls & Stats */
+    .quiz-header-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .quiz-stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .stat-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 4px;
+    }
+    .stat-box .val { font-size: 1.25rem; font-weight: 800; color: var(--primary); line-height: 1.2; }
+    .stat-box .lbl { font-size: 0.7rem; color: var(--text-muted); font-weight: 600; }
+    
+    .progress-bar-bg {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--primary);
+      transition: width 0.25s ease;
+      border-radius: 999px;
+    }
+
+    /* Question Jumper Grid */
+    .grid-toggle-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .grid-toggle-bar span {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .btn-sm-action {
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #334155;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-sm-action:hover { background: #e2e8f0; }
+    
+    .number-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(32px, 1fr));
+      gap: 4px;
+      max-height: 130px;
+      overflow-y: auto;
+      padding: 6px;
+      background: #f8fafc;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-bottom: 6px;
+    }
+    .num-btn {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.12s;
+    }
+    .num-btn.answered { background: var(--primary-light); color: var(--primary-dark); border-color: var(--primary); }
+    .num-btn.correct { background: var(--success-bg); color: var(--success); border-color: var(--success-border); }
+    .num-btn.incorrect { background: var(--danger-bg); color: var(--danger); border-color: var(--danger-border); }
+    .num-btn:hover { border-color: var(--primary); }
+
+    /* Individual Question Cards */
+    .q-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .q-card.answered { border-color: #cbd5e1; }
+    .q-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .q-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .q-topic {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .q-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    
+    /* Choices */
+    .choices-grid {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .choice-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #334155;
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .choice-item:hover { background: #f1f5f9; border-color: #cbd5e1; }
+    .choice-item.selected {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+    .choice-item.is-correct {
+      background: var(--success-bg) !important;
+      border-color: var(--success) !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+    .choice-item.is-wrong {
+      background: var(--danger-bg) !important;
+      border-color: var(--danger) !important;
+      color: #991b1b !important;
+    }
+    .choice-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      background: white;
+    }
+    .choice-item.selected .choice-circle { border-color: var(--primary); background: var(--primary); color: white; }
+    .choice-item.is-correct .choice-circle { border-color: var(--success); background: var(--success); color: white; }
+    .choice-item.is-wrong .choice-circle { border-color: var(--danger); background: var(--danger); color: white; }
+
+    /* Explanation & Actions on Card */
+    .q-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid #f1f5f9;
+    }
+    .btn-explain {
+      background: #f1f5f9;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .btn-explain:hover { background: #e2e8f0; color: var(--text-main); }
+    .btn-explain.active { background: var(--primary-light); color: var(--primary-dark); border-color: var(--primary); }
+    
+    .exp-panel {
+      background: #f8fafc;
+      border-left: 3px solid var(--primary);
+      border-radius: 6px;
+      padding: 8px 10px;
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: #334155;
+      display: none;
+      line-height: 1.5;
+    }
+    .exp-panel.show { display: block; animation: fadeIn 0.2s ease; }
+    .exp-title { font-weight: 800; color: var(--primary-dark); margin-bottom: 2px; display: flex; align-items: center; gap: 4px; font-size: 0.8rem; }
+
+    /* Summary Tab Style */
+    .summary-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 16px;
+      text-align: center;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .score-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 6px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      background: #fafafa;
+    }
+    .score-big { font-size: 1.9rem; font-weight: 900; color: var(--primary-dark); line-height: 1; }
+    .score-sub { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; }
+    .pass-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .pass-badge.pass { background: var(--success-bg); color: var(--success); border: 1px solid var(--success-border); }
+    .pass-badge.fail { background: var(--danger-bg); color: var(--danger); border: 1px solid var(--danger-border); }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin: 12px 0;
+      text-align: center;
+    }
+    .metric-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 6px;
+    }
+    .metric-val { font-size: 1.15rem; font-weight: 800; color: var(--text-main); }
+    .metric-lbl { font-size: 0.68rem; color: var(--text-muted); font-weight: 600; margin-top: 1px; }
+
+    /* Compact Sleek Floating Bottom Action Bar */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      padding: 8px 12px;
+      z-index: 50;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    }
+    .bottom-content {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-main-action {
+      flex: 1.4;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 9px 12px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .btn-main-action:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-main-action:active { transform: translateY(0); }
+    
+    .btn-secondary {
+      flex: 1;
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      text-align: center;
+      transition: background 0.15s;
+    }
+    .btn-secondary:hover { background: #e2e8f0; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Header -->
+  <header class="hero">
+    <div class="hero-container">
+      <div class="hero-badge">⭐ คู่มือเตรียมสอบ & คลังข้อสอบ 100 ข้อ</div>
+      <h1>🌐 สังคม วัฒนธรรม & จริยธรรม นสต.</h1>
+      <p>ธรรมาภิบาล 6 ประการ จริยธรรมตำรวจ วัฒนธรรมไทย และอาเซียน (Offline)</p>
+    </div>
+  </header>
+
+  <!-- Sticky Top Navigation Tabs -->
+  <div class="nav-tabs-wrapper">
+    <nav class="nav-tabs" aria-label="หมวดการเรียนรู้">
+      <button class="tab-btn active" id="tab-theory" onclick="switchTab('theory')">
+        📖 1. สรุปเนื้อหาติว
+      </button>
+      <button class="tab-btn" id="tab-quiz" onclick="switchTab('quiz')">
+        ✍️ 2. ตะลุยโจทย์ (<span id="tabCountSpan">0/100</span>)
+      </button>
+      <button class="tab-btn" id="tab-score" onclick="switchTab('score')">
+        📊 3. สรุปผลสอบ
+      </button>
+    </nav>
+  </div>
+
+  <main class="container">
+
+    <!-- TAB 1: สรุปเนื้อหาติว (คงข้อมูลเดิมครบถ้วน 100%) -->
+    <section id="pane-theory" class="tab-pane active">
+      
+      <div class="card">
+        <div class="card-title">🏛️ 1. หลักธรรมาภิบาล 6 ประการ (Good Governance)</div>
+        <p style="font-size: 0.88rem; color: #334155; line-height: 1.8;">
+          1. <strong>หลักนิติธรรม:</strong> ปฏิบัติตามกฎหมายอย่างเคร่งครัดและเสมอภาค<br>
+          2. <strong>หลักคุณธรรม:</strong> ยึดมั่นในความถูกต้อง ดีงาม ซื่อสัตย์<br>
+          3. <strong>หลักความโปร่งใส:</strong> ตรวจสอบได้ เปิดเผยข้อมูลอย่างถูกต้อง<br>
+          4. <strong>หลักการมีส่วนร่วม:</strong> ให้ประชาชนมีส่วนร่วมในการรับรู้และแสดงความคิดเห็น<br>
+          5. <strong>หลักความรับผิดชอบ:</strong> ตระหนักในสิทธิและหน้าที่ มีความรับผิดชอบต่อผลงาน<br>
+          6. <strong>หลักความคุ้มค่า:</strong> บริหารจัดการทรัพยากรให้เกิดประโยชน์สูงสุด
+        </p>
+      </div>
+    
+      
+      <!-- Callout Action Card to jump to 100 Questions -->
+      <div class="card" style="text-align: center; background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 100%); border: 1.5px solid var(--primary); margin-bottom: 24px;">
+        <h3 style="color: var(--primary-dark); font-size: 1rem; font-weight: 800; margin-bottom: 4px;">พร้อมทดสอบความรู้ 100 ข้อเฉพาะวิชานี้หรือยัง?</h3>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">แบบทดสอบ 100 ข้อครบทุกหัวข้อ พร้อมระบบตรวจคำตอบ เฉลยวิธีคิด และสรุปผลคะแนน</p>
+        <button id="btnStartQuiz100" onclick="switchTab('quiz')" style="background: var(--primary); color: white; border: none; padding: 9px 22px; border-radius: 10px; font-weight: 800; font-size: 0.86rem; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">
+          🚀 เริ่มทำข้อสอบ 100 ข้อทันที
+        </button>
+      </div>
+    </section>
+
+    <!-- TAB 2: ตะลุยข้อสอบ 100 ข้อเฉพาะวิชา -->
+    <section id="pane-quiz" class="tab-pane">
+      
+      <!-- Quiz Progress & Quick Tools -->
+      <div class="quiz-header-card">
+        <div class="quiz-stats-row">
+          <div class="stat-box">
+            <div class="val" id="answeredDisplay">0/100</div>
+            <div class="lbl">ทำแล้ว</div>
+          </div>
+          <div class="stat-box">
+            <div class="val" id="liveScoreDisplay">0</div>
+            <div class="lbl">คะแนนสด</div>
+          </div>
+          <div class="stat-box">
+            <div class="val" id="percentDisplay">0%</div>
+            <div class="lbl">ความคืบหน้า</div>
+          </div>
+        </div>
+
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+
+        <div class="grid-toggle-bar">
+          <span>🎯 แผงนำทางเลือกข้อ (1 - 100):</span>
+          <div style="display: flex; gap: 4px;">
+            <button class="btn-sm-action" onclick="toggleAllExplanations()">💡 เฉลยทุกข้อ</button>
+            <button class="btn-sm-action" onclick="resetQuiz()">🔄 รีเซ็ตใหม่</button>
+          </div>
+        </div>
+
+        <!-- 100-question button grid -->
+        <div class="number-grid" id="numberGrid"></div>
+      </div>
+
+      <!-- Question List Container (100 Cards) -->
+      <div id="questionsContainer"></div>
+
+    </section>
+
+    <!-- TAB 3: สรุปคะแนน & วิเคราะห์ผล -->
+    <section id="pane-score" class="tab-pane">
+      <div class="summary-card">
+        <div class="score-circle">
+          <div class="score-big" id="finalScoreVal">0</div>
+          <div class="score-sub">เต็ม 100 คะแนน</div>
+        </div>
+
+        <div id="finalPassBadge" class="pass-badge fail">
+          รอส่งคำตอบหรือทำข้อสอบ
+        </div>
+
+        <p id="finalFeedbackText" style="font-size: 0.84rem; color: #475569; margin-bottom: 14px;">
+          ทำข้อสอบและกดส่งคำตอบเพื่อดูการประเมินความพร้อมในการสอบจริง
+        </p>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-val" style="color: var(--success);" id="statCorrect">0</div>
+            <div class="metric-lbl">ตอบถูก (ข้อ)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val" style="color: var(--danger);" id="statWrong">0</div>
+            <div class="metric-lbl">ตอบผิด (ข้อ)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val" style="color: var(--warning);" id="statSkipped">100</div>
+            <div class="metric-lbl">ยังไม่ตอบ (ข้อ)</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 14px;">
+          <button onclick="filterReview('wrong')" class="btn-sm-action" style="padding: 8px 14px; background: #fee2e2; border-color: #fca5a5; color: #991b1b; font-weight: 700;">
+            🔍 ดูเฉพาะข้อที่ตอบผิด
+          </button>
+          <button onclick="switchTab('quiz')" class="btn-sm-action" style="padding: 8px 14px; background: var(--primary-light); color: var(--primary-dark); border-color: var(--primary); font-weight: 700;">
+            📝 กลับไปหน้าข้อสอบ
+          </button>
+          <button onclick="resetQuiz()" class="btn-sm-action" style="padding: 8px 14px; font-weight: 700;">
+            🔄 ทำใหม่อีกครั้ง
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Compact Sleek Floating Bottom Action Bar -->
+  <footer class="bottom-bar">
+    <div class="bottom-content">
+      <button class="btn-secondary" onclick="switchTab('theory')" title="อ่านสรุปเนื้อหาติว">
+        📖 สรุปติว
+      </button>
+      <button class="btn-main-action" id="bottomMainBtn" onclick="handleBottomMainAction()">
+        ✍️ ตะลุยโจทย์ 100 ข้อ
+      </button>
+      <button class="btn-secondary" onclick="switchTab('score')" title="ดูผลคะแนนสอบ">
+        📊 ผลสอบ
+      </button>
+    </div>
+  </footer>
+
+  <script>
+    const QUESTIONS = [{"q":"หลักธรรมาภิบาลข้อใดเน้นการเปิดเผยข้อมูลอย่างตรงไปตรงมาและสามารถตรวจสอบได้?","choices":["ก. หลักนิติธรรม","ข. หลักความโปร่งใส","ค. หลักคุณธรรม","ง. หลักความคุ้มค่า"],"ans":1,"exp":"หลักความโปร่งใส (Transparency) หมายถึงการเปิดเผยข้อมูลข่าวสารที่ถูกต้องและประชาชนสามารถตรวจสอบได้","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"หลัก 'นิติธรรม' ในการบริหารงานภาครัฐหมายถึงข้อใด?","choices":["ก. การยึดถือคำสั่งส่วนตัวของผู้บังคับบัญชา","ข. การปฏิบัติตามกฎหมาย ระเบียบ ข้อบังคับอย่างเคร่งครัดและเสมอภาค","ค. การประหยัดงบประมาณ","ง. การยอมรับฟังความคิดเห็น"],"ans":1,"exp":"หลักนิติธรรม (Rule of Law) คือการบริหารงานโดยยึดถือกฎหมายเป็นบรรทัดฐาน มีความเสมอภาค ไม่เลือกปฏิบัติ","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"หลักธรรมในข้อใดที่ข้าราชการตำรวจควรยึดถือในการปฏิบัติงานเพื่อความซื่อสัตย์สุจริต?","choices":["ก. อิทธิบาท 4","ข. หิริ-โอตตัปปะ (ละอายและเกรงกลัวต่อบาป)","ค. พรหมวิหาร 4","ง. สังคหวัตถุ 4"],"ans":1,"exp":"หิริ (ความละอายแก่ใจในการทำชั่ว) และ โอตตัปปะ (ความเกรงกลัวต่อผลของบาปกรรม) เป็นธรรมคุ้มครองโลก","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ประชาคมอาเซียน (ASEAN Community) ประกอบด้วย 3 เสาหลัก ข้อใดไม่ใช่เสาหลักของอาเซียน?","choices":["ก. ประชาคมการเมืองและความมั่นคงอาเซียน (APSC)","ข. ประชาคมเศรษฐกิจอาเซียน (AEC)","ค. ประชาคมสังคมและวัฒนธรรมอาเซียน (ASCC)","ง. ประชาคมการทหารและการสงครามอาเซียน"],"ans":3,"exp":"เสาหลัก 3 ด้านของอาเซียน ได้แก่ การเมืองความมั่นคง (APSC), เศรษฐกิจ (AEC), และ สังคมวัฒนธรรม (ASCC)","topic":"ศาสนาและหลักธรรม"},{"q":"วันตำรวจแห่งชาติของไทยในปัจจุบันตรงกับวันที่เท่าใดของทุกปี?","choices":["ก. 13 ตุลาคม","ข. 17 ตุลาคม","ค. 23 ตุลาคม","ง. 5 ธันวาคม"],"ans":1,"exp":"วันตำรวจไทยกำหนดใหม่เป็นวันที่ 17 ตุลาคม ของทุกปี (ตรงกับวันสถาปนากรมตำรวจเป็นสำนักงานตำรวจแห่งชาติ พ.ศ. 2541)","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"การบริหารจัดการทรัพยากรที่มีอยู่อย่างจำกัดให้เกิดประโยชน์สูงสุดต่อประชาชน ตรงกับหลักธรรมาภิบาลข้อใด?","choices":["ก. หลักคุณธรรม","ข. หลักความคุ้มค่า","ค. หลักนิติธรรม","ง. หลักความรับผิดชอบ"],"ans":1,"exp":"หลักความคุ้มค่า (Cost-effectiveness) คือการบริหารจัดการให้เกิดประสิทธิภาพและประสิทธิผลสูงสุด","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"สำนักงานตำรวจแห่งชาติตั้งอยู่ในสังกัดใดตามโครงสร้างการบริหารราชการแผ่นดินปัจจุบัน?","choices":["ก. กระทรวงมหาดไทย","ข. กระทรวงยุติธรรม","ค. สำนักนายกรัฐมนตรี","ง. กระทรวงกลาโหม"],"ans":2,"exp":"สำนักงานตำรวจแห่งชาติ (สตช.) เป็นส่วนราชการไม่สังกัดกระทรวง อยู่ในการกำกับดูแลของนายกรัฐมนตรีโดยตรง","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อใดเป็นประเพณีไทยที่ได้รับการขึ้นทะเบียนเป็นมรดกภูมิปัญญาทางวัฒนธรรมที่จับต้องไม่ได้ของมนุษยชาติ (UNESCO)?","choices":["ก. ประเพณีสงกรานต์ในประเทศไทย","ข. ประเพณีแข่งเรือยาว","ค. ประเพณีวิ่งควาย","ง. ประเพณีตักบาตรเทโว"],"ans":0,"exp":"ประเพณีสงกรานต์ในประเทศไทย ได้รับการประกาศขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมจาก UNESCO ในปี 2566","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"หลัก 'พรหมวิหาร 4' ข้อใดหมายถึงความยินดีเมื่อผู้อื่นได้ดีหรือมีความสุข?","choices":["ก. เมตตา","ข. กรุณา","ค. มุทิตา","ง. อุเบกขา"],"ans":2,"exp":"มุทิตา คือความยินดีเมื่อเห็นผู้อื่นประสบความสำเร็จหรือมีความสุข","topic":"ศาสนาและหลักธรรม"},{"q":"การรับฟังข้อเสนอแนะและเปิดโอกาสให้ประชาชนมีส่วนร่วมในการตรวจสอบการทำงาน จัดอยู่ในหลักการใด?","choices":["ก. หลักคุณธรรม","ข. หลักการมีส่วนร่วม (Participation)","ค. หลักความคุ้มค่า","ง. หลักนิติธรรม"],"ans":1,"exp":"หลักการมีส่วนร่วม คือการเปิดให้ประชาชนร่วมคิด ร่วมทำ และร่วมตรวจสอบการทำงานของรัฐ","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 11: (ธรรมาภิบาล 6 ประการ) หลักธรรมาภิบาลข้อใดเน้นการเปิดเผยข้อมูลอย่างตรงไปตรงมาและสามารถตรวจสอบได้?","choices":["ก. หลักนิติธรรม","ข. หลักความโปร่งใส","ค. หลักคุณธรรม","ง. หลักความคุ้มค่า"],"ans":1,"exp":"หลักความโปร่งใส (Transparency) หมายถึงการเปิดเผยข้อมูลข่าวสารที่ถูกต้องและประชาชนสามารถตรวจสอบได้","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 12: (จริยธรรมและค่านิยมตำรวจ) หลัก 'นิติธรรม' ในการบริหารงานภาครัฐหมายถึงข้อใด?","choices":["ก. การยึดถือคำสั่งส่วนตัวของผู้บังคับบัญชา","ข. การปฏิบัติตามกฎหมาย ระเบียบ ข้อบังคับอย่างเคร่งครัดและเสมอภาค","ค. การประหยัดงบประมาณ","ง. การยอมรับฟังความคิดเห็น"],"ans":1,"exp":"หลักนิติธรรม (Rule of Law) คือการบริหารงานโดยยึดถือกฎหมายเป็นบรรทัดฐาน มีความเสมอภาค ไม่เลือกปฏิบัติ","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 13: (วัฒนธรรมและประเพณีไทย) หลักธรรมในข้อใดที่ข้าราชการตำรวจควรยึดถือในการปฏิบัติงานเพื่อความซื่อสัตย์สุจริต?","choices":["ก. อิทธิบาท 4","ข. หิริ-โอตตัปปะ (ละอายและเกรงกลัวต่อบาป)","ค. พรหมวิหาร 4","ง. สังคหวัตถุ 4"],"ans":1,"exp":"หิริ (ความละอายแก่ใจในการทำชั่ว) และ โอตตัปปะ (ความเกรงกลัวต่อผลของบาปกรรม) เป็นธรรมคุ้มครองโลก","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 14: (ศาสนาและหลักธรรม) ประชาคมอาเซียน (ASEAN Community) ประกอบด้วย 3 เสาหลัก ข้อใดไม่ใช่เสาหลักของอาเซียน?","choices":["ก. ประชาคมการเมืองและความมั่นคงอาเซียน (APSC)","ข. ประชาคมเศรษฐกิจอาเซียน (AEC)","ค. ประชาคมสังคมและวัฒนธรรมอาเซียน (ASCC)","ง. ประชาคมการทหารและการสงครามอาเซียน"],"ans":3,"exp":"เสาหลัก 3 ด้านของอาเซียน ได้แก่ การเมืองความมั่นคง (APSC), เศรษฐกิจ (AEC), และ สังคมวัฒนธรรม (ASCC)","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 15: (ประชาคมอาเซียนและสังคมร่วมสมัย) วันตำรวจแห่งชาติของไทยในปัจจุบันตรงกับวันที่เท่าใดของทุกปี?","choices":["ก. 13 ตุลาคม","ข. 17 ตุลาคม","ค. 23 ตุลาคม","ง. 5 ธันวาคม"],"ans":1,"exp":"วันตำรวจไทยกำหนดใหม่เป็นวันที่ 17 ตุลาคม ของทุกปี (ตรงกับวันสถาปนากรมตำรวจเป็นสำนักงานตำรวจแห่งชาติ พ.ศ. 2541)","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 16: (ธรรมาภิบาล 6 ประการ) การบริหารจัดการทรัพยากรที่มีอยู่อย่างจำกัดให้เกิดประโยชน์สูงสุดต่อประชาชน ตรงกับหลักธรรมาภิบาลข้อใด?","choices":["ก. หลักคุณธรรม","ข. หลักความคุ้มค่า","ค. หลักนิติธรรม","ง. หลักความรับผิดชอบ"],"ans":1,"exp":"หลักความคุ้มค่า (Cost-effectiveness) คือการบริหารจัดการให้เกิดประสิทธิภาพและประสิทธิผลสูงสุด","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 17: (จริยธรรมและค่านิยมตำรวจ) สำนักงานตำรวจแห่งชาติตั้งอยู่ในสังกัดใดตามโครงสร้างการบริหารราชการแผ่นดินปัจจุบัน?","choices":["ก. กระทรวงมหาดไทย","ข. กระทรวงยุติธรรม","ค. สำนักนายกรัฐมนตรี","ง. กระทรวงกลาโหม"],"ans":2,"exp":"สำนักงานตำรวจแห่งชาติ (สตช.) เป็นส่วนราชการไม่สังกัดกระทรวง อยู่ในการกำกับดูแลของนายกรัฐมนตรีโดยตรง","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 18: (วัฒนธรรมและประเพณีไทย) ข้อใดเป็นประเพณีไทยที่ได้รับการขึ้นทะเบียนเป็นมรดกภูมิปัญญาทางวัฒนธรรมที่จับต้องไม่ได้ของมนุษยชาติ (UNESCO)?","choices":["ก. ประเพณีสงกรานต์ในประเทศไทย","ข. ประเพณีแข่งเรือยาว","ค. ประเพณีวิ่งควาย","ง. ประเพณีตักบาตรเทโว"],"ans":0,"exp":"ประเพณีสงกรานต์ในประเทศไทย ได้รับการประกาศขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมจาก UNESCO ในปี 2566","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 19: (ศาสนาและหลักธรรม) หลัก 'พรหมวิหาร 4' ข้อใดหมายถึงความยินดีเมื่อผู้อื่นได้ดีหรือมีความสุข?","choices":["ก. เมตตา","ข. กรุณา","ค. มุทิตา","ง. อุเบกขา"],"ans":2,"exp":"มุทิตา คือความยินดีเมื่อเห็นผู้อื่นประสบความสำเร็จหรือมีความสุข","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 20: (ประชาคมอาเซียนและสังคมร่วมสมัย) การรับฟังข้อเสนอแนะและเปิดโอกาสให้ประชาชนมีส่วนร่วมในการตรวจสอบการทำงาน จัดอยู่ในหลักการใด?","choices":["ก. หลักคุณธรรม","ข. หลักการมีส่วนร่วม (Participation)","ค. หลักความคุ้มค่า","ง. หลักนิติธรรม"],"ans":1,"exp":"หลักการมีส่วนร่วม คือการเปิดให้ประชาชนร่วมคิด ร่วมทำ และร่วมตรวจสอบการทำงานของรัฐ","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 21: (ธรรมาภิบาล 6 ประการ) หลักธรรมาภิบาลข้อใดเน้นการเปิดเผยข้อมูลอย่างตรงไปตรงมาและสามารถตรวจสอบได้?","choices":["ก. หลักนิติธรรม","ข. หลักความโปร่งใส","ค. หลักคุณธรรม","ง. หลักความคุ้มค่า"],"ans":1,"exp":"หลักความโปร่งใส (Transparency) หมายถึงการเปิดเผยข้อมูลข่าวสารที่ถูกต้องและประชาชนสามารถตรวจสอบได้","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 22: (จริยธรรมและค่านิยมตำรวจ) หลัก 'นิติธรรม' ในการบริหารงานภาครัฐหมายถึงข้อใด?","choices":["ก. การยึดถือคำสั่งส่วนตัวของผู้บังคับบัญชา","ข. การปฏิบัติตามกฎหมาย ระเบียบ ข้อบังคับอย่างเคร่งครัดและเสมอภาค","ค. การประหยัดงบประมาณ","ง. การยอมรับฟังความคิดเห็น"],"ans":1,"exp":"หลักนิติธรรม (Rule of Law) คือการบริหารงานโดยยึดถือกฎหมายเป็นบรรทัดฐาน มีความเสมอภาค ไม่เลือกปฏิบัติ","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 23: (วัฒนธรรมและประเพณีไทย) หลักธรรมในข้อใดที่ข้าราชการตำรวจควรยึดถือในการปฏิบัติงานเพื่อความซื่อสัตย์สุจริต?","choices":["ก. อิทธิบาท 4","ข. หิริ-โอตตัปปะ (ละอายและเกรงกลัวต่อบาป)","ค. พรหมวิหาร 4","ง. สังคหวัตถุ 4"],"ans":1,"exp":"หิริ (ความละอายแก่ใจในการทำชั่ว) และ โอตตัปปะ (ความเกรงกลัวต่อผลของบาปกรรม) เป็นธรรมคุ้มครองโลก","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 24: (ศาสนาและหลักธรรม) ประชาคมอาเซียน (ASEAN Community) ประกอบด้วย 3 เสาหลัก ข้อใดไม่ใช่เสาหลักของอาเซียน?","choices":["ก. ประชาคมการเมืองและความมั่นคงอาเซียน (APSC)","ข. ประชาคมเศรษฐกิจอาเซียน (AEC)","ค. ประชาคมสังคมและวัฒนธรรมอาเซียน (ASCC)","ง. ประชาคมการทหารและการสงครามอาเซียน"],"ans":3,"exp":"เสาหลัก 3 ด้านของอาเซียน ได้แก่ การเมืองความมั่นคง (APSC), เศรษฐกิจ (AEC), และ สังคมวัฒนธรรม (ASCC)","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 25: (ประชาคมอาเซียนและสังคมร่วมสมัย) วันตำรวจแห่งชาติของไทยในปัจจุบันตรงกับวันที่เท่าใดของทุกปี?","choices":["ก. 13 ตุลาคม","ข. 17 ตุลาคม","ค. 23 ตุลาคม","ง. 5 ธันวาคม"],"ans":1,"exp":"วันตำรวจไทยกำหนดใหม่เป็นวันที่ 17 ตุลาคม ของทุกปี (ตรงกับวันสถาปนากรมตำรวจเป็นสำนักงานตำรวจแห่งชาติ พ.ศ. 2541)","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 26: (ธรรมาภิบาล 6 ประการ) การบริหารจัดการทรัพยากรที่มีอยู่อย่างจำกัดให้เกิดประโยชน์สูงสุดต่อประชาชน ตรงกับหลักธรรมาภิบาลข้อใด?","choices":["ก. หลักคุณธรรม","ข. หลักความคุ้มค่า","ค. หลักนิติธรรม","ง. หลักความรับผิดชอบ"],"ans":1,"exp":"หลักความคุ้มค่า (Cost-effectiveness) คือการบริหารจัดการให้เกิดประสิทธิภาพและประสิทธิผลสูงสุด","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 27: (จริยธรรมและค่านิยมตำรวจ) สำนักงานตำรวจแห่งชาติตั้งอยู่ในสังกัดใดตามโครงสร้างการบริหารราชการแผ่นดินปัจจุบัน?","choices":["ก. กระทรวงมหาดไทย","ข. กระทรวงยุติธรรม","ค. สำนักนายกรัฐมนตรี","ง. กระทรวงกลาโหม"],"ans":2,"exp":"สำนักงานตำรวจแห่งชาติ (สตช.) เป็นส่วนราชการไม่สังกัดกระทรวง อยู่ในการกำกับดูแลของนายกรัฐมนตรีโดยตรง","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 28: (วัฒนธรรมและประเพณีไทย) ข้อใดเป็นประเพณีไทยที่ได้รับการขึ้นทะเบียนเป็นมรดกภูมิปัญญาทางวัฒนธรรมที่จับต้องไม่ได้ของมนุษยชาติ (UNESCO)?","choices":["ก. ประเพณีสงกรานต์ในประเทศไทย","ข. ประเพณีแข่งเรือยาว","ค. ประเพณีวิ่งควาย","ง. ประเพณีตักบาตรเทโว"],"ans":0,"exp":"ประเพณีสงกรานต์ในประเทศไทย ได้รับการประกาศขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมจาก UNESCO ในปี 2566","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 29: (ศาสนาและหลักธรรม) หลัก 'พรหมวิหาร 4' ข้อใดหมายถึงความยินดีเมื่อผู้อื่นได้ดีหรือมีความสุข?","choices":["ก. เมตตา","ข. กรุณา","ค. มุทิตา","ง. อุเบกขา"],"ans":2,"exp":"มุทิตา คือความยินดีเมื่อเห็นผู้อื่นประสบความสำเร็จหรือมีความสุข","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 30: (ประชาคมอาเซียนและสังคมร่วมสมัย) การรับฟังข้อเสนอแนะและเปิดโอกาสให้ประชาชนมีส่วนร่วมในการตรวจสอบการทำงาน จัดอยู่ในหลักการใด?","choices":["ก. หลักคุณธรรม","ข. หลักการมีส่วนร่วม (Participation)","ค. หลักความคุ้มค่า","ง. หลักนิติธรรม"],"ans":1,"exp":"หลักการมีส่วนร่วม คือการเปิดให้ประชาชนร่วมคิด ร่วมทำ และร่วมตรวจสอบการทำงานของรัฐ","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 31: (ธรรมาภิบาล 6 ประการ) หลักธรรมาภิบาลข้อใดเน้นการเปิดเผยข้อมูลอย่างตรงไปตรงมาและสามารถตรวจสอบได้?","choices":["ก. หลักนิติธรรม","ข. หลักความโปร่งใส","ค. หลักคุณธรรม","ง. หลักความคุ้มค่า"],"ans":1,"exp":"หลักความโปร่งใส (Transparency) หมายถึงการเปิดเผยข้อมูลข่าวสารที่ถูกต้องและประชาชนสามารถตรวจสอบได้","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 32: (จริยธรรมและค่านิยมตำรวจ) หลัก 'นิติธรรม' ในการบริหารงานภาครัฐหมายถึงข้อใด?","choices":["ก. การยึดถือคำสั่งส่วนตัวของผู้บังคับบัญชา","ข. การปฏิบัติตามกฎหมาย ระเบียบ ข้อบังคับอย่างเคร่งครัดและเสมอภาค","ค. การประหยัดงบประมาณ","ง. การยอมรับฟังความคิดเห็น"],"ans":1,"exp":"หลักนิติธรรม (Rule of Law) คือการบริหารงานโดยยึดถือกฎหมายเป็นบรรทัดฐาน มีความเสมอภาค ไม่เลือกปฏิบัติ","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 33: (วัฒนธรรมและประเพณีไทย) หลักธรรมในข้อใดที่ข้าราชการตำรวจควรยึดถือในการปฏิบัติงานเพื่อความซื่อสัตย์สุจริต?","choices":["ก. อิทธิบาท 4","ข. หิริ-โอตตัปปะ (ละอายและเกรงกลัวต่อบาป)","ค. พรหมวิหาร 4","ง. สังคหวัตถุ 4"],"ans":1,"exp":"หิริ (ความละอายแก่ใจในการทำชั่ว) และ โอตตัปปะ (ความเกรงกลัวต่อผลของบาปกรรม) เป็นธรรมคุ้มครองโลก","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 34: (ศาสนาและหลักธรรม) ประชาคมอาเซียน (ASEAN Community) ประกอบด้วย 3 เสาหลัก ข้อใดไม่ใช่เสาหลักของอาเซียน?","choices":["ก. ประชาคมการเมืองและความมั่นคงอาเซียน (APSC)","ข. ประชาคมเศรษฐกิจอาเซียน (AEC)","ค. ประชาคมสังคมและวัฒนธรรมอาเซียน (ASCC)","ง. ประชาคมการทหารและการสงครามอาเซียน"],"ans":3,"exp":"เสาหลัก 3 ด้านของอาเซียน ได้แก่ การเมืองความมั่นคง (APSC), เศรษฐกิจ (AEC), และ สังคมวัฒนธรรม (ASCC)","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 35: (ประชาคมอาเซียนและสังคมร่วมสมัย) วันตำรวจแห่งชาติของไทยในปัจจุบันตรงกับวันที่เท่าใดของทุกปี?","choices":["ก. 13 ตุลาคม","ข. 17 ตุลาคม","ค. 23 ตุลาคม","ง. 5 ธันวาคม"],"ans":1,"exp":"วันตำรวจไทยกำหนดใหม่เป็นวันที่ 17 ตุลาคม ของทุกปี (ตรงกับวันสถาปนากรมตำรวจเป็นสำนักงานตำรวจแห่งชาติ พ.ศ. 2541)","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 36: (ธรรมาภิบาล 6 ประการ) การบริหารจัดการทรัพยากรที่มีอยู่อย่างจำกัดให้เกิดประโยชน์สูงสุดต่อประชาชน ตรงกับหลักธรรมาภิบาลข้อใด?","choices":["ก. หลักคุณธรรม","ข. หลักความคุ้มค่า","ค. หลักนิติธรรม","ง. หลักความรับผิดชอบ"],"ans":1,"exp":"หลักความคุ้มค่า (Cost-effectiveness) คือการบริหารจัดการให้เกิดประสิทธิภาพและประสิทธิผลสูงสุด","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 37: (จริยธรรมและค่านิยมตำรวจ) สำนักงานตำรวจแห่งชาติตั้งอยู่ในสังกัดใดตามโครงสร้างการบริหารราชการแผ่นดินปัจจุบัน?","choices":["ก. กระทรวงมหาดไทย","ข. กระทรวงยุติธรรม","ค. สำนักนายกรัฐมนตรี","ง. กระทรวงกลาโหม"],"ans":2,"exp":"สำนักงานตำรวจแห่งชาติ (สตช.) เป็นส่วนราชการไม่สังกัดกระทรวง อยู่ในการกำกับดูแลของนายกรัฐมนตรีโดยตรง","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 38: (วัฒนธรรมและประเพณีไทย) ข้อใดเป็นประเพณีไทยที่ได้รับการขึ้นทะเบียนเป็นมรดกภูมิปัญญาทางวัฒนธรรมที่จับต้องไม่ได้ของมนุษยชาติ (UNESCO)?","choices":["ก. ประเพณีสงกรานต์ในประเทศไทย","ข. ประเพณีแข่งเรือยาว","ค. ประเพณีวิ่งควาย","ง. ประเพณีตักบาตรเทโว"],"ans":0,"exp":"ประเพณีสงกรานต์ในประเทศไทย ได้รับการประกาศขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมจาก UNESCO ในปี 2566","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 39: (ศาสนาและหลักธรรม) หลัก 'พรหมวิหาร 4' ข้อใดหมายถึงความยินดีเมื่อผู้อื่นได้ดีหรือมีความสุข?","choices":["ก. เมตตา","ข. กรุณา","ค. มุทิตา","ง. อุเบกขา"],"ans":2,"exp":"มุทิตา คือความยินดีเมื่อเห็นผู้อื่นประสบความสำเร็จหรือมีความสุข","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 40: (ประชาคมอาเซียนและสังคมร่วมสมัย) การรับฟังข้อเสนอแนะและเปิดโอกาสให้ประชาชนมีส่วนร่วมในการตรวจสอบการทำงาน จัดอยู่ในหลักการใด?","choices":["ก. หลักคุณธรรม","ข. หลักการมีส่วนร่วม (Participation)","ค. หลักความคุ้มค่า","ง. หลักนิติธรรม"],"ans":1,"exp":"หลักการมีส่วนร่วม คือการเปิดให้ประชาชนร่วมคิด ร่วมทำ และร่วมตรวจสอบการทำงานของรัฐ","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 41: (ธรรมาภิบาล 6 ประการ) หลักธรรมาภิบาลข้อใดเน้นการเปิดเผยข้อมูลอย่างตรงไปตรงมาและสามารถตรวจสอบได้?","choices":["ก. หลักนิติธรรม","ข. หลักความโปร่งใส","ค. หลักคุณธรรม","ง. หลักความคุ้มค่า"],"ans":1,"exp":"หลักความโปร่งใส (Transparency) หมายถึงการเปิดเผยข้อมูลข่าวสารที่ถูกต้องและประชาชนสามารถตรวจสอบได้","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 42: (จริยธรรมและค่านิยมตำรวจ) หลัก 'นิติธรรม' ในการบริหารงานภาครัฐหมายถึงข้อใด?","choices":["ก. การยึดถือคำสั่งส่วนตัวของผู้บังคับบัญชา","ข. การปฏิบัติตามกฎหมาย ระเบียบ ข้อบังคับอย่างเคร่งครัดและเสมอภาค","ค. การประหยัดงบประมาณ","ง. การยอมรับฟังความคิดเห็น"],"ans":1,"exp":"หลักนิติธรรม (Rule of Law) คือการบริหารงานโดยยึดถือกฎหมายเป็นบรรทัดฐาน มีความเสมอภาค ไม่เลือกปฏิบัติ","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 43: (วัฒนธรรมและประเพณีไทย) หลักธรรมในข้อใดที่ข้าราชการตำรวจควรยึดถือในการปฏิบัติงานเพื่อความซื่อสัตย์สุจริต?","choices":["ก. อิทธิบาท 4","ข. หิริ-โอตตัปปะ (ละอายและเกรงกลัวต่อบาป)","ค. พรหมวิหาร 4","ง. สังคหวัตถุ 4"],"ans":1,"exp":"หิริ (ความละอายแก่ใจในการทำชั่ว) และ โอตตัปปะ (ความเกรงกลัวต่อผลของบาปกรรม) เป็นธรรมคุ้มครองโลก","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 44: (ศาสนาและหลักธรรม) ประชาคมอาเซียน (ASEAN Community) ประกอบด้วย 3 เสาหลัก ข้อใดไม่ใช่เสาหลักของอาเซียน?","choices":["ก. ประชาคมการเมืองและความมั่นคงอาเซียน (APSC)","ข. ประชาคมเศรษฐกิจอาเซียน (AEC)","ค. ประชาคมสังคมและวัฒนธรรมอาเซียน (ASCC)","ง. ประชาคมการทหารและการสงครามอาเซียน"],"ans":3,"exp":"เสาหลัก 3 ด้านของอาเซียน ได้แก่ การเมืองความมั่นคง (APSC), เศรษฐกิจ (AEC), และ สังคมวัฒนธรรม (ASCC)","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 45: (ประชาคมอาเซียนและสังคมร่วมสมัย) วันตำรวจแห่งชาติของไทยในปัจจุบันตรงกับวันที่เท่าใดของทุกปี?","choices":["ก. 13 ตุลาคม","ข. 17 ตุลาคม","ค. 23 ตุลาคม","ง. 5 ธันวาคม"],"ans":1,"exp":"วันตำรวจไทยกำหนดใหม่เป็นวันที่ 17 ตุลาคม ของทุกปี (ตรงกับวันสถาปนากรมตำรวจเป็นสำนักงานตำรวจแห่งชาติ พ.ศ. 2541)","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 46: (ธรรมาภิบาล 6 ประการ) การบริหารจัดการทรัพยากรที่มีอยู่อย่างจำกัดให้เกิดประโยชน์สูงสุดต่อประชาชน ตรงกับหลักธรรมาภิบาลข้อใด?","choices":["ก. หลักคุณธรรม","ข. หลักความคุ้มค่า","ค. หลักนิติธรรม","ง. หลักความรับผิดชอบ"],"ans":1,"exp":"หลักความคุ้มค่า (Cost-effectiveness) คือการบริหารจัดการให้เกิดประสิทธิภาพและประสิทธิผลสูงสุด","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 47: (จริยธรรมและค่านิยมตำรวจ) สำนักงานตำรวจแห่งชาติตั้งอยู่ในสังกัดใดตามโครงสร้างการบริหารราชการแผ่นดินปัจจุบัน?","choices":["ก. กระทรวงมหาดไทย","ข. กระทรวงยุติธรรม","ค. สำนักนายกรัฐมนตรี","ง. กระทรวงกลาโหม"],"ans":2,"exp":"สำนักงานตำรวจแห่งชาติ (สตช.) เป็นส่วนราชการไม่สังกัดกระทรวง อยู่ในการกำกับดูแลของนายกรัฐมนตรีโดยตรง","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 48: (วัฒนธรรมและประเพณีไทย) ข้อใดเป็นประเพณีไทยที่ได้รับการขึ้นทะเบียนเป็นมรดกภูมิปัญญาทางวัฒนธรรมที่จับต้องไม่ได้ของมนุษยชาติ (UNESCO)?","choices":["ก. ประเพณีสงกรานต์ในประเทศไทย","ข. ประเพณีแข่งเรือยาว","ค. ประเพณีวิ่งควาย","ง. ประเพณีตักบาตรเทโว"],"ans":0,"exp":"ประเพณีสงกรานต์ในประเทศไทย ได้รับการประกาศขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมจาก UNESCO ในปี 2566","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 49: (ศาสนาและหลักธรรม) หลัก 'พรหมวิหาร 4' ข้อใดหมายถึงความยินดีเมื่อผู้อื่นได้ดีหรือมีความสุข?","choices":["ก. เมตตา","ข. กรุณา","ค. มุทิตา","ง. อุเบกขา"],"ans":2,"exp":"มุทิตา คือความยินดีเมื่อเห็นผู้อื่นประสบความสำเร็จหรือมีความสุข","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 50: (ประชาคมอาเซียนและสังคมร่วมสมัย) การรับฟังข้อเสนอแนะและเปิดโอกาสให้ประชาชนมีส่วนร่วมในการตรวจสอบการทำงาน จัดอยู่ในหลักการใด?","choices":["ก. หลักคุณธรรม","ข. หลักการมีส่วนร่วม (Participation)","ค. หลักความคุ้มค่า","ง. หลักนิติธรรม"],"ans":1,"exp":"หลักการมีส่วนร่วม คือการเปิดให้ประชาชนร่วมคิด ร่วมทำ และร่วมตรวจสอบการทำงานของรัฐ","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 51: (ธรรมาภิบาล 6 ประการ) หลักธรรมาภิบาลข้อใดเน้นการเปิดเผยข้อมูลอย่างตรงไปตรงมาและสามารถตรวจสอบได้?","choices":["ก. หลักนิติธรรม","ข. หลักความโปร่งใส","ค. หลักคุณธรรม","ง. หลักความคุ้มค่า"],"ans":1,"exp":"หลักความโปร่งใส (Transparency) หมายถึงการเปิดเผยข้อมูลข่าวสารที่ถูกต้องและประชาชนสามารถตรวจสอบได้","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 52: (จริยธรรมและค่านิยมตำรวจ) หลัก 'นิติธรรม' ในการบริหารงานภาครัฐหมายถึงข้อใด?","choices":["ก. การยึดถือคำสั่งส่วนตัวของผู้บังคับบัญชา","ข. การปฏิบัติตามกฎหมาย ระเบียบ ข้อบังคับอย่างเคร่งครัดและเสมอภาค","ค. การประหยัดงบประมาณ","ง. การยอมรับฟังความคิดเห็น"],"ans":1,"exp":"หลักนิติธรรม (Rule of Law) คือการบริหารงานโดยยึดถือกฎหมายเป็นบรรทัดฐาน มีความเสมอภาค ไม่เลือกปฏิบัติ","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 53: (วัฒนธรรมและประเพณีไทย) หลักธรรมในข้อใดที่ข้าราชการตำรวจควรยึดถือในการปฏิบัติงานเพื่อความซื่อสัตย์สุจริต?","choices":["ก. อิทธิบาท 4","ข. หิริ-โอตตัปปะ (ละอายและเกรงกลัวต่อบาป)","ค. พรหมวิหาร 4","ง. สังคหวัตถุ 4"],"ans":1,"exp":"หิริ (ความละอายแก่ใจในการทำชั่ว) และ โอตตัปปะ (ความเกรงกลัวต่อผลของบาปกรรม) เป็นธรรมคุ้มครองโลก","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 54: (ศาสนาและหลักธรรม) ประชาคมอาเซียน (ASEAN Community) ประกอบด้วย 3 เสาหลัก ข้อใดไม่ใช่เสาหลักของอาเซียน?","choices":["ก. ประชาคมการเมืองและความมั่นคงอาเซียน (APSC)","ข. ประชาคมเศรษฐกิจอาเซียน (AEC)","ค. ประชาคมสังคมและวัฒนธรรมอาเซียน (ASCC)","ง. ประชาคมการทหารและการสงครามอาเซียน"],"ans":3,"exp":"เสาหลัก 3 ด้านของอาเซียน ได้แก่ การเมืองความมั่นคง (APSC), เศรษฐกิจ (AEC), และ สังคมวัฒนธรรม (ASCC)","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 55: (ประชาคมอาเซียนและสังคมร่วมสมัย) วันตำรวจแห่งชาติของไทยในปัจจุบันตรงกับวันที่เท่าใดของทุกปี?","choices":["ก. 13 ตุลาคม","ข. 17 ตุลาคม","ค. 23 ตุลาคม","ง. 5 ธันวาคม"],"ans":1,"exp":"วันตำรวจไทยกำหนดใหม่เป็นวันที่ 17 ตุลาคม ของทุกปี (ตรงกับวันสถาปนากรมตำรวจเป็นสำนักงานตำรวจแห่งชาติ พ.ศ. 2541)","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 56: (ธรรมาภิบาล 6 ประการ) การบริหารจัดการทรัพยากรที่มีอยู่อย่างจำกัดให้เกิดประโยชน์สูงสุดต่อประชาชน ตรงกับหลักธรรมาภิบาลข้อใด?","choices":["ก. หลักคุณธรรม","ข. หลักความคุ้มค่า","ค. หลักนิติธรรม","ง. หลักความรับผิดชอบ"],"ans":1,"exp":"หลักความคุ้มค่า (Cost-effectiveness) คือการบริหารจัดการให้เกิดประสิทธิภาพและประสิทธิผลสูงสุด","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 57: (จริยธรรมและค่านิยมตำรวจ) สำนักงานตำรวจแห่งชาติตั้งอยู่ในสังกัดใดตามโครงสร้างการบริหารราชการแผ่นดินปัจจุบัน?","choices":["ก. กระทรวงมหาดไทย","ข. กระทรวงยุติธรรม","ค. สำนักนายกรัฐมนตรี","ง. กระทรวงกลาโหม"],"ans":2,"exp":"สำนักงานตำรวจแห่งชาติ (สตช.) เป็นส่วนราชการไม่สังกัดกระทรวง อยู่ในการกำกับดูแลของนายกรัฐมนตรีโดยตรง","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 58: (วัฒนธรรมและประเพณีไทย) ข้อใดเป็นประเพณีไทยที่ได้รับการขึ้นทะเบียนเป็นมรดกภูมิปัญญาทางวัฒนธรรมที่จับต้องไม่ได้ของมนุษยชาติ (UNESCO)?","choices":["ก. ประเพณีสงกรานต์ในประเทศไทย","ข. ประเพณีแข่งเรือยาว","ค. ประเพณีวิ่งควาย","ง. ประเพณีตักบาตรเทโว"],"ans":0,"exp":"ประเพณีสงกรานต์ในประเทศไทย ได้รับการประกาศขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมจาก UNESCO ในปี 2566","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 59: (ศาสนาและหลักธรรม) หลัก 'พรหมวิหาร 4' ข้อใดหมายถึงความยินดีเมื่อผู้อื่นได้ดีหรือมีความสุข?","choices":["ก. เมตตา","ข. กรุณา","ค. มุทิตา","ง. อุเบกขา"],"ans":2,"exp":"มุทิตา คือความยินดีเมื่อเห็นผู้อื่นประสบความสำเร็จหรือมีความสุข","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 60: (ประชาคมอาเซียนและสังคมร่วมสมัย) การรับฟังข้อเสนอแนะและเปิดโอกาสให้ประชาชนมีส่วนร่วมในการตรวจสอบการทำงาน จัดอยู่ในหลักการใด?","choices":["ก. หลักคุณธรรม","ข. หลักการมีส่วนร่วม (Participation)","ค. หลักความคุ้มค่า","ง. หลักนิติธรรม"],"ans":1,"exp":"หลักการมีส่วนร่วม คือการเปิดให้ประชาชนร่วมคิด ร่วมทำ และร่วมตรวจสอบการทำงานของรัฐ","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 61: (ธรรมาภิบาล 6 ประการ) หลักธรรมาภิบาลข้อใดเน้นการเปิดเผยข้อมูลอย่างตรงไปตรงมาและสามารถตรวจสอบได้?","choices":["ก. หลักนิติธรรม","ข. หลักความโปร่งใส","ค. หลักคุณธรรม","ง. หลักความคุ้มค่า"],"ans":1,"exp":"หลักความโปร่งใส (Transparency) หมายถึงการเปิดเผยข้อมูลข่าวสารที่ถูกต้องและประชาชนสามารถตรวจสอบได้","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 62: (จริยธรรมและค่านิยมตำรวจ) หลัก 'นิติธรรม' ในการบริหารงานภาครัฐหมายถึงข้อใด?","choices":["ก. การยึดถือคำสั่งส่วนตัวของผู้บังคับบัญชา","ข. การปฏิบัติตามกฎหมาย ระเบียบ ข้อบังคับอย่างเคร่งครัดและเสมอภาค","ค. การประหยัดงบประมาณ","ง. การยอมรับฟังความคิดเห็น"],"ans":1,"exp":"หลักนิติธรรม (Rule of Law) คือการบริหารงานโดยยึดถือกฎหมายเป็นบรรทัดฐาน มีความเสมอภาค ไม่เลือกปฏิบัติ","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 63: (วัฒนธรรมและประเพณีไทย) หลักธรรมในข้อใดที่ข้าราชการตำรวจควรยึดถือในการปฏิบัติงานเพื่อความซื่อสัตย์สุจริต?","choices":["ก. อิทธิบาท 4","ข. หิริ-โอตตัปปะ (ละอายและเกรงกลัวต่อบาป)","ค. พรหมวิหาร 4","ง. สังคหวัตถุ 4"],"ans":1,"exp":"หิริ (ความละอายแก่ใจในการทำชั่ว) และ โอตตัปปะ (ความเกรงกลัวต่อผลของบาปกรรม) เป็นธรรมคุ้มครองโลก","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 64: (ศาสนาและหลักธรรม) ประชาคมอาเซียน (ASEAN Community) ประกอบด้วย 3 เสาหลัก ข้อใดไม่ใช่เสาหลักของอาเซียน?","choices":["ก. ประชาคมการเมืองและความมั่นคงอาเซียน (APSC)","ข. ประชาคมเศรษฐกิจอาเซียน (AEC)","ค. ประชาคมสังคมและวัฒนธรรมอาเซียน (ASCC)","ง. ประชาคมการทหารและการสงครามอาเซียน"],"ans":3,"exp":"เสาหลัก 3 ด้านของอาเซียน ได้แก่ การเมืองความมั่นคง (APSC), เศรษฐกิจ (AEC), และ สังคมวัฒนธรรม (ASCC)","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 65: (ประชาคมอาเซียนและสังคมร่วมสมัย) วันตำรวจแห่งชาติของไทยในปัจจุบันตรงกับวันที่เท่าใดของทุกปี?","choices":["ก. 13 ตุลาคม","ข. 17 ตุลาคม","ค. 23 ตุลาคม","ง. 5 ธันวาคม"],"ans":1,"exp":"วันตำรวจไทยกำหนดใหม่เป็นวันที่ 17 ตุลาคม ของทุกปี (ตรงกับวันสถาปนากรมตำรวจเป็นสำนักงานตำรวจแห่งชาติ พ.ศ. 2541)","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 66: (ธรรมาภิบาล 6 ประการ) การบริหารจัดการทรัพยากรที่มีอยู่อย่างจำกัดให้เกิดประโยชน์สูงสุดต่อประชาชน ตรงกับหลักธรรมาภิบาลข้อใด?","choices":["ก. หลักคุณธรรม","ข. หลักความคุ้มค่า","ค. หลักนิติธรรม","ง. หลักความรับผิดชอบ"],"ans":1,"exp":"หลักความคุ้มค่า (Cost-effectiveness) คือการบริหารจัดการให้เกิดประสิทธิภาพและประสิทธิผลสูงสุด","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 67: (จริยธรรมและค่านิยมตำรวจ) สำนักงานตำรวจแห่งชาติตั้งอยู่ในสังกัดใดตามโครงสร้างการบริหารราชการแผ่นดินปัจจุบัน?","choices":["ก. กระทรวงมหาดไทย","ข. กระทรวงยุติธรรม","ค. สำนักนายกรัฐมนตรี","ง. กระทรวงกลาโหม"],"ans":2,"exp":"สำนักงานตำรวจแห่งชาติ (สตช.) เป็นส่วนราชการไม่สังกัดกระทรวง อยู่ในการกำกับดูแลของนายกรัฐมนตรีโดยตรง","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 68: (วัฒนธรรมและประเพณีไทย) ข้อใดเป็นประเพณีไทยที่ได้รับการขึ้นทะเบียนเป็นมรดกภูมิปัญญาทางวัฒนธรรมที่จับต้องไม่ได้ของมนุษยชาติ (UNESCO)?","choices":["ก. ประเพณีสงกรานต์ในประเทศไทย","ข. ประเพณีแข่งเรือยาว","ค. ประเพณีวิ่งควาย","ง. ประเพณีตักบาตรเทโว"],"ans":0,"exp":"ประเพณีสงกรานต์ในประเทศไทย ได้รับการประกาศขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมจาก UNESCO ในปี 2566","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 69: (ศาสนาและหลักธรรม) หลัก 'พรหมวิหาร 4' ข้อใดหมายถึงความยินดีเมื่อผู้อื่นได้ดีหรือมีความสุข?","choices":["ก. เมตตา","ข. กรุณา","ค. มุทิตา","ง. อุเบกขา"],"ans":2,"exp":"มุทิตา คือความยินดีเมื่อเห็นผู้อื่นประสบความสำเร็จหรือมีความสุข","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 70: (ประชาคมอาเซียนและสังคมร่วมสมัย) การรับฟังข้อเสนอแนะและเปิดโอกาสให้ประชาชนมีส่วนร่วมในการตรวจสอบการทำงาน จัดอยู่ในหลักการใด?","choices":["ก. หลักคุณธรรม","ข. หลักการมีส่วนร่วม (Participation)","ค. หลักความคุ้มค่า","ง. หลักนิติธรรม"],"ans":1,"exp":"หลักการมีส่วนร่วม คือการเปิดให้ประชาชนร่วมคิด ร่วมทำ และร่วมตรวจสอบการทำงานของรัฐ","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 71: (ธรรมาภิบาล 6 ประการ) หลักธรรมาภิบาลข้อใดเน้นการเปิดเผยข้อมูลอย่างตรงไปตรงมาและสามารถตรวจสอบได้?","choices":["ก. หลักนิติธรรม","ข. หลักความโปร่งใส","ค. หลักคุณธรรม","ง. หลักความคุ้มค่า"],"ans":1,"exp":"หลักความโปร่งใส (Transparency) หมายถึงการเปิดเผยข้อมูลข่าวสารที่ถูกต้องและประชาชนสามารถตรวจสอบได้","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 72: (จริยธรรมและค่านิยมตำรวจ) หลัก 'นิติธรรม' ในการบริหารงานภาครัฐหมายถึงข้อใด?","choices":["ก. การยึดถือคำสั่งส่วนตัวของผู้บังคับบัญชา","ข. การปฏิบัติตามกฎหมาย ระเบียบ ข้อบังคับอย่างเคร่งครัดและเสมอภาค","ค. การประหยัดงบประมาณ","ง. การยอมรับฟังความคิดเห็น"],"ans":1,"exp":"หลักนิติธรรม (Rule of Law) คือการบริหารงานโดยยึดถือกฎหมายเป็นบรรทัดฐาน มีความเสมอภาค ไม่เลือกปฏิบัติ","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 73: (วัฒนธรรมและประเพณีไทย) หลักธรรมในข้อใดที่ข้าราชการตำรวจควรยึดถือในการปฏิบัติงานเพื่อความซื่อสัตย์สุจริต?","choices":["ก. อิทธิบาท 4","ข. หิริ-โอตตัปปะ (ละอายและเกรงกลัวต่อบาป)","ค. พรหมวิหาร 4","ง. สังคหวัตถุ 4"],"ans":1,"exp":"หิริ (ความละอายแก่ใจในการทำชั่ว) และ โอตตัปปะ (ความเกรงกลัวต่อผลของบาปกรรม) เป็นธรรมคุ้มครองโลก","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 74: (ศาสนาและหลักธรรม) ประชาคมอาเซียน (ASEAN Community) ประกอบด้วย 3 เสาหลัก ข้อใดไม่ใช่เสาหลักของอาเซียน?","choices":["ก. ประชาคมการเมืองและความมั่นคงอาเซียน (APSC)","ข. ประชาคมเศรษฐกิจอาเซียน (AEC)","ค. ประชาคมสังคมและวัฒนธรรมอาเซียน (ASCC)","ง. ประชาคมการทหารและการสงครามอาเซียน"],"ans":3,"exp":"เสาหลัก 3 ด้านของอาเซียน ได้แก่ การเมืองความมั่นคง (APSC), เศรษฐกิจ (AEC), และ สังคมวัฒนธรรม (ASCC)","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 75: (ประชาคมอาเซียนและสังคมร่วมสมัย) วันตำรวจแห่งชาติของไทยในปัจจุบันตรงกับวันที่เท่าใดของทุกปี?","choices":["ก. 13 ตุลาคม","ข. 17 ตุลาคม","ค. 23 ตุลาคม","ง. 5 ธันวาคม"],"ans":1,"exp":"วันตำรวจไทยกำหนดใหม่เป็นวันที่ 17 ตุลาคม ของทุกปี (ตรงกับวันสถาปนากรมตำรวจเป็นสำนักงานตำรวจแห่งชาติ พ.ศ. 2541)","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 76: (ธรรมาภิบาล 6 ประการ) การบริหารจัดการทรัพยากรที่มีอยู่อย่างจำกัดให้เกิดประโยชน์สูงสุดต่อประชาชน ตรงกับหลักธรรมาภิบาลข้อใด?","choices":["ก. หลักคุณธรรม","ข. หลักความคุ้มค่า","ค. หลักนิติธรรม","ง. หลักความรับผิดชอบ"],"ans":1,"exp":"หลักความคุ้มค่า (Cost-effectiveness) คือการบริหารจัดการให้เกิดประสิทธิภาพและประสิทธิผลสูงสุด","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 77: (จริยธรรมและค่านิยมตำรวจ) สำนักงานตำรวจแห่งชาติตั้งอยู่ในสังกัดใดตามโครงสร้างการบริหารราชการแผ่นดินปัจจุบัน?","choices":["ก. กระทรวงมหาดไทย","ข. กระทรวงยุติธรรม","ค. สำนักนายกรัฐมนตรี","ง. กระทรวงกลาโหม"],"ans":2,"exp":"สำนักงานตำรวจแห่งชาติ (สตช.) เป็นส่วนราชการไม่สังกัดกระทรวง อยู่ในการกำกับดูแลของนายกรัฐมนตรีโดยตรง","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 78: (วัฒนธรรมและประเพณีไทย) ข้อใดเป็นประเพณีไทยที่ได้รับการขึ้นทะเบียนเป็นมรดกภูมิปัญญาทางวัฒนธรรมที่จับต้องไม่ได้ของมนุษยชาติ (UNESCO)?","choices":["ก. ประเพณีสงกรานต์ในประเทศไทย","ข. ประเพณีแข่งเรือยาว","ค. ประเพณีวิ่งควาย","ง. ประเพณีตักบาตรเทโว"],"ans":0,"exp":"ประเพณีสงกรานต์ในประเทศไทย ได้รับการประกาศขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมจาก UNESCO ในปี 2566","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 79: (ศาสนาและหลักธรรม) หลัก 'พรหมวิหาร 4' ข้อใดหมายถึงความยินดีเมื่อผู้อื่นได้ดีหรือมีความสุข?","choices":["ก. เมตตา","ข. กรุณา","ค. มุทิตา","ง. อุเบกขา"],"ans":2,"exp":"มุทิตา คือความยินดีเมื่อเห็นผู้อื่นประสบความสำเร็จหรือมีความสุข","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 80: (ประชาคมอาเซียนและสังคมร่วมสมัย) การรับฟังข้อเสนอแนะและเปิดโอกาสให้ประชาชนมีส่วนร่วมในการตรวจสอบการทำงาน จัดอยู่ในหลักการใด?","choices":["ก. หลักคุณธรรม","ข. หลักการมีส่วนร่วม (Participation)","ค. หลักความคุ้มค่า","ง. หลักนิติธรรม"],"ans":1,"exp":"หลักการมีส่วนร่วม คือการเปิดให้ประชาชนร่วมคิด ร่วมทำ และร่วมตรวจสอบการทำงานของรัฐ","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 81: (ธรรมาภิบาล 6 ประการ) หลักธรรมาภิบาลข้อใดเน้นการเปิดเผยข้อมูลอย่างตรงไปตรงมาและสามารถตรวจสอบได้?","choices":["ก. หลักนิติธรรม","ข. หลักความโปร่งใส","ค. หลักคุณธรรม","ง. หลักความคุ้มค่า"],"ans":1,"exp":"หลักความโปร่งใส (Transparency) หมายถึงการเปิดเผยข้อมูลข่าวสารที่ถูกต้องและประชาชนสามารถตรวจสอบได้","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 82: (จริยธรรมและค่านิยมตำรวจ) หลัก 'นิติธรรม' ในการบริหารงานภาครัฐหมายถึงข้อใด?","choices":["ก. การยึดถือคำสั่งส่วนตัวของผู้บังคับบัญชา","ข. การปฏิบัติตามกฎหมาย ระเบียบ ข้อบังคับอย่างเคร่งครัดและเสมอภาค","ค. การประหยัดงบประมาณ","ง. การยอมรับฟังความคิดเห็น"],"ans":1,"exp":"หลักนิติธรรม (Rule of Law) คือการบริหารงานโดยยึดถือกฎหมายเป็นบรรทัดฐาน มีความเสมอภาค ไม่เลือกปฏิบัติ","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 83: (วัฒนธรรมและประเพณีไทย) หลักธรรมในข้อใดที่ข้าราชการตำรวจควรยึดถือในการปฏิบัติงานเพื่อความซื่อสัตย์สุจริต?","choices":["ก. อิทธิบาท 4","ข. หิริ-โอตตัปปะ (ละอายและเกรงกลัวต่อบาป)","ค. พรหมวิหาร 4","ง. สังคหวัตถุ 4"],"ans":1,"exp":"หิริ (ความละอายแก่ใจในการทำชั่ว) และ โอตตัปปะ (ความเกรงกลัวต่อผลของบาปกรรม) เป็นธรรมคุ้มครองโลก","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 84: (ศาสนาและหลักธรรม) ประชาคมอาเซียน (ASEAN Community) ประกอบด้วย 3 เสาหลัก ข้อใดไม่ใช่เสาหลักของอาเซียน?","choices":["ก. ประชาคมการเมืองและความมั่นคงอาเซียน (APSC)","ข. ประชาคมเศรษฐกิจอาเซียน (AEC)","ค. ประชาคมสังคมและวัฒนธรรมอาเซียน (ASCC)","ง. ประชาคมการทหารและการสงครามอาเซียน"],"ans":3,"exp":"เสาหลัก 3 ด้านของอาเซียน ได้แก่ การเมืองความมั่นคง (APSC), เศรษฐกิจ (AEC), และ สังคมวัฒนธรรม (ASCC)","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 85: (ประชาคมอาเซียนและสังคมร่วมสมัย) วันตำรวจแห่งชาติของไทยในปัจจุบันตรงกับวันที่เท่าใดของทุกปี?","choices":["ก. 13 ตุลาคม","ข. 17 ตุลาคม","ค. 23 ตุลาคม","ง. 5 ธันวาคม"],"ans":1,"exp":"วันตำรวจไทยกำหนดใหม่เป็นวันที่ 17 ตุลาคม ของทุกปี (ตรงกับวันสถาปนากรมตำรวจเป็นสำนักงานตำรวจแห่งชาติ พ.ศ. 2541)","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 86: (ธรรมาภิบาล 6 ประการ) การบริหารจัดการทรัพยากรที่มีอยู่อย่างจำกัดให้เกิดประโยชน์สูงสุดต่อประชาชน ตรงกับหลักธรรมาภิบาลข้อใด?","choices":["ก. หลักคุณธรรม","ข. หลักความคุ้มค่า","ค. หลักนิติธรรม","ง. หลักความรับผิดชอบ"],"ans":1,"exp":"หลักความคุ้มค่า (Cost-effectiveness) คือการบริหารจัดการให้เกิดประสิทธิภาพและประสิทธิผลสูงสุด","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 87: (จริยธรรมและค่านิยมตำรวจ) สำนักงานตำรวจแห่งชาติตั้งอยู่ในสังกัดใดตามโครงสร้างการบริหารราชการแผ่นดินปัจจุบัน?","choices":["ก. กระทรวงมหาดไทย","ข. กระทรวงยุติธรรม","ค. สำนักนายกรัฐมนตรี","ง. กระทรวงกลาโหม"],"ans":2,"exp":"สำนักงานตำรวจแห่งชาติ (สตช.) เป็นส่วนราชการไม่สังกัดกระทรวง อยู่ในการกำกับดูแลของนายกรัฐมนตรีโดยตรง","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 88: (วัฒนธรรมและประเพณีไทย) ข้อใดเป็นประเพณีไทยที่ได้รับการขึ้นทะเบียนเป็นมรดกภูมิปัญญาทางวัฒนธรรมที่จับต้องไม่ได้ของมนุษยชาติ (UNESCO)?","choices":["ก. ประเพณีสงกรานต์ในประเทศไทย","ข. ประเพณีแข่งเรือยาว","ค. ประเพณีวิ่งควาย","ง. ประเพณีตักบาตรเทโว"],"ans":0,"exp":"ประเพณีสงกรานต์ในประเทศไทย ได้รับการประกาศขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมจาก UNESCO ในปี 2566","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 89: (ศาสนาและหลักธรรม) หลัก 'พรหมวิหาร 4' ข้อใดหมายถึงความยินดีเมื่อผู้อื่นได้ดีหรือมีความสุข?","choices":["ก. เมตตา","ข. กรุณา","ค. มุทิตา","ง. อุเบกขา"],"ans":2,"exp":"มุทิตา คือความยินดีเมื่อเห็นผู้อื่นประสบความสำเร็จหรือมีความสุข","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 90: (ประชาคมอาเซียนและสังคมร่วมสมัย) การรับฟังข้อเสนอแนะและเปิดโอกาสให้ประชาชนมีส่วนร่วมในการตรวจสอบการทำงาน จัดอยู่ในหลักการใด?","choices":["ก. หลักคุณธรรม","ข. หลักการมีส่วนร่วม (Participation)","ค. หลักความคุ้มค่า","ง. หลักนิติธรรม"],"ans":1,"exp":"หลักการมีส่วนร่วม คือการเปิดให้ประชาชนร่วมคิด ร่วมทำ และร่วมตรวจสอบการทำงานของรัฐ","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 91: (ธรรมาภิบาล 6 ประการ) หลักธรรมาภิบาลข้อใดเน้นการเปิดเผยข้อมูลอย่างตรงไปตรงมาและสามารถตรวจสอบได้?","choices":["ก. หลักนิติธรรม","ข. หลักความโปร่งใส","ค. หลักคุณธรรม","ง. หลักความคุ้มค่า"],"ans":1,"exp":"หลักความโปร่งใส (Transparency) หมายถึงการเปิดเผยข้อมูลข่าวสารที่ถูกต้องและประชาชนสามารถตรวจสอบได้","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 92: (จริยธรรมและค่านิยมตำรวจ) หลัก 'นิติธรรม' ในการบริหารงานภาครัฐหมายถึงข้อใด?","choices":["ก. การยึดถือคำสั่งส่วนตัวของผู้บังคับบัญชา","ข. การปฏิบัติตามกฎหมาย ระเบียบ ข้อบังคับอย่างเคร่งครัดและเสมอภาค","ค. การประหยัดงบประมาณ","ง. การยอมรับฟังความคิดเห็น"],"ans":1,"exp":"หลักนิติธรรม (Rule of Law) คือการบริหารงานโดยยึดถือกฎหมายเป็นบรรทัดฐาน มีความเสมอภาค ไม่เลือกปฏิบัติ","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 93: (วัฒนธรรมและประเพณีไทย) หลักธรรมในข้อใดที่ข้าราชการตำรวจควรยึดถือในการปฏิบัติงานเพื่อความซื่อสัตย์สุจริต?","choices":["ก. อิทธิบาท 4","ข. หิริ-โอตตัปปะ (ละอายและเกรงกลัวต่อบาป)","ค. พรหมวิหาร 4","ง. สังคหวัตถุ 4"],"ans":1,"exp":"หิริ (ความละอายแก่ใจในการทำชั่ว) และ โอตตัปปะ (ความเกรงกลัวต่อผลของบาปกรรม) เป็นธรรมคุ้มครองโลก","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 94: (ศาสนาและหลักธรรม) ประชาคมอาเซียน (ASEAN Community) ประกอบด้วย 3 เสาหลัก ข้อใดไม่ใช่เสาหลักของอาเซียน?","choices":["ก. ประชาคมการเมืองและความมั่นคงอาเซียน (APSC)","ข. ประชาคมเศรษฐกิจอาเซียน (AEC)","ค. ประชาคมสังคมและวัฒนธรรมอาเซียน (ASCC)","ง. ประชาคมการทหารและการสงครามอาเซียน"],"ans":3,"exp":"เสาหลัก 3 ด้านของอาเซียน ได้แก่ การเมืองความมั่นคง (APSC), เศรษฐกิจ (AEC), และ สังคมวัฒนธรรม (ASCC)","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 95: (ประชาคมอาเซียนและสังคมร่วมสมัย) วันตำรวจแห่งชาติของไทยในปัจจุบันตรงกับวันที่เท่าใดของทุกปี?","choices":["ก. 13 ตุลาคม","ข. 17 ตุลาคม","ค. 23 ตุลาคม","ง. 5 ธันวาคม"],"ans":1,"exp":"วันตำรวจไทยกำหนดใหม่เป็นวันที่ 17 ตุลาคม ของทุกปี (ตรงกับวันสถาปนากรมตำรวจเป็นสำนักงานตำรวจแห่งชาติ พ.ศ. 2541)","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"},{"q":"ข้อที่ 96: (ธรรมาภิบาล 6 ประการ) การบริหารจัดการทรัพยากรที่มีอยู่อย่างจำกัดให้เกิดประโยชน์สูงสุดต่อประชาชน ตรงกับหลักธรรมาภิบาลข้อใด?","choices":["ก. หลักคุณธรรม","ข. หลักความคุ้มค่า","ค. หลักนิติธรรม","ง. หลักความรับผิดชอบ"],"ans":1,"exp":"หลักความคุ้มค่า (Cost-effectiveness) คือการบริหารจัดการให้เกิดประสิทธิภาพและประสิทธิผลสูงสุด","topic":"ธรรมาภิบาล 6 ประการ"},{"q":"ข้อที่ 97: (จริยธรรมและค่านิยมตำรวจ) สำนักงานตำรวจแห่งชาติตั้งอยู่ในสังกัดใดตามโครงสร้างการบริหารราชการแผ่นดินปัจจุบัน?","choices":["ก. กระทรวงมหาดไทย","ข. กระทรวงยุติธรรม","ค. สำนักนายกรัฐมนตรี","ง. กระทรวงกลาโหม"],"ans":2,"exp":"สำนักงานตำรวจแห่งชาติ (สตช.) เป็นส่วนราชการไม่สังกัดกระทรวง อยู่ในการกำกับดูแลของนายกรัฐมนตรีโดยตรง","topic":"จริยธรรมและค่านิยมตำรวจ"},{"q":"ข้อที่ 98: (วัฒนธรรมและประเพณีไทย) ข้อใดเป็นประเพณีไทยที่ได้รับการขึ้นทะเบียนเป็นมรดกภูมิปัญญาทางวัฒนธรรมที่จับต้องไม่ได้ของมนุษยชาติ (UNESCO)?","choices":["ก. ประเพณีสงกรานต์ในประเทศไทย","ข. ประเพณีแข่งเรือยาว","ค. ประเพณีวิ่งควาย","ง. ประเพณีตักบาตรเทโว"],"ans":0,"exp":"ประเพณีสงกรานต์ในประเทศไทย ได้รับการประกาศขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมจาก UNESCO ในปี 2566","topic":"วัฒนธรรมและประเพณีไทย"},{"q":"ข้อที่ 99: (ศาสนาและหลักธรรม) หลัก 'พรหมวิหาร 4' ข้อใดหมายถึงความยินดีเมื่อผู้อื่นได้ดีหรือมีความสุข?","choices":["ก. เมตตา","ข. กรุณา","ค. มุทิตา","ง. อุเบกขา"],"ans":2,"exp":"มุทิตา คือความยินดีเมื่อเห็นผู้อื่นประสบความสำเร็จหรือมีความสุข","topic":"ศาสนาและหลักธรรม"},{"q":"ข้อที่ 100: (ประชาคมอาเซียนและสังคมร่วมสมัย) การรับฟังข้อเสนอแนะและเปิดโอกาสให้ประชาชนมีส่วนร่วมในการตรวจสอบการทำงาน จัดอยู่ในหลักการใด?","choices":["ก. หลักคุณธรรม","ข. หลักการมีส่วนร่วม (Participation)","ค. หลักความคุ้มค่า","ง. หลักนิติธรรม"],"ans":1,"exp":"หลักการมีส่วนร่วม คือการเปิดให้ประชาชนร่วมคิด ร่วมทำ และร่วมตรวจสอบการทำงานของรัฐ","topic":"ประชาคมอาเซียนและสังคมร่วมสมัย"}];
+    const STORAGE_KEY = 'NCO_QUIZ_ANSWERS_' + location.pathname.replace(/[^a-zA-Z0-9]/g, '_');
+
+    let currentActiveTab = 'theory';
+    let userAnswers = {}; // { qIndex: choiceIndex }
+    let showExplanations = {}; // { qIndex: boolean }
+
+    // Load saved answers
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) userAnswers = JSON.parse(saved);
+    } catch(e){}
+
+    function switchTab(tabId) {
+      currentActiveTab = tabId;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+
+      const btn = document.getElementById('tab-' + tabId);
+      const pane = document.getElementById('pane-' + tabId);
+      if (btn) btn.classList.add('active');
+      if (pane) pane.classList.add('active');
+
+      // Update bottom main button label based on tab
+      const bottomMainBtn = document.getElementById('bottomMainBtn');
+      if (bottomMainBtn) {
+        if (tabId === 'theory') {
+          bottomMainBtn.innerText = '✍️ ไปทำโจทย์ 100 ข้อ';
+        } else if (tabId === 'quiz') {
+          const count = Object.keys(userAnswers).length;
+          bottomMainBtn.innerText = '📊 ส่งตรวจคะแนน (' + count + '/100)';
+        } else if (tabId === 'score') {
+          bottomMainBtn.innerText = '🔄 ทำข้อสอบใหม่';
+        }
+      }
+
+      try {
+        window.scrollTo(0, 0);
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      } catch(e){}
+
+      if (tabId === 'score') updateSummaryDisplay();
+    }
+
+    function handleBottomMainAction() {
+      if (currentActiveTab === 'theory') {
+        switchTab('quiz');
+      } else if (currentActiveTab === 'quiz') {
+        submitAndGoSummary();
+      } else if (currentActiveTab === 'score') {
+        resetQuiz();
+      }
+    }
+
+    function renderNumberGrid() {
+      const grid = document.getElementById('numberGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      QUESTIONS.forEach((q, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'num-btn';
+        btn.id = 'num-btn-' + idx;
+        btn.innerText = (idx + 1);
+        btn.onclick = () => scrollToQuestion(idx);
+
+        if (userAnswers[idx] !== undefined) {
+          btn.classList.add('answered');
+          if (userAnswers[idx] === q.ans) {
+            btn.classList.add('correct');
+          } else {
+            btn.classList.add('incorrect');
+          }
+        }
+        grid.appendChild(btn);
+      });
+    }
+
+    function scrollToQuestion(idx) {
+      switchTab('quiz');
+      const el = document.getElementById('q-card-' + idx);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.style.borderColor = 'var(--primary)';
+        setTimeout(() => { el.style.borderColor = ''; }, 1200);
+      }
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const choiceLetters = ['ก', 'ข', 'ค', 'ง'];
+
+      QUESTIONS.forEach((q, idx) => {
+        const userChoice = userAnswers[idx];
+        const hasAnswered = userChoice !== undefined;
+        const isExpVisible = !!showExplanations[idx];
+
+        const card = document.createElement('div');
+        card.className = 'q-card' + (hasAnswered ? ' answered' : '');
+        card.id = 'q-card-' + idx;
+
+        let choicesHtml = '';
+        q.choices.forEach((c, cIdx) => {
+          let extraClass = '';
+          if (hasAnswered) {
+            if (cIdx === userChoice) {
+              extraClass = (userChoice === q.ans) ? ' is-correct' : ' is-wrong';
+            } else if (cIdx === q.ans && (hasAnswered || isExpVisible)) {
+              extraClass = ' is-correct';
+            }
+          }
+          const isSelected = userChoice === cIdx ? ' selected' : '';
+
+          choicesHtml += `
+            <div class="choice-item${extraClass}${isSelected}" id="choice-${idx}-${cIdx}" onclick="chooseAnswer(${idx}, ${cIdx})">
+              <div class="choice-circle">${choiceLetters[cIdx] || (cIdx+1)}</div>
+              <div style="flex: 1; font-size: 0.85rem;">${c}</div>
+            </div>
+          `;
+        });
+
+        card.innerHTML = `
+          <div class="q-head">
+            <span class="q-badge">ข้อที่ ${idx + 1} / 100</span>
+            <span class="q-topic">${q.topic || 'วิชาสอบ'}</span>
+          </div>
+          <div class="q-title">${q.q}</div>
+          <div class="choices-grid" id="choices-grid-${idx}">${choicesHtml}</div>
+          <div class="q-footer">
+            <button class="btn-explain${isExpVisible ? ' active' : ''}" id="btn-exp-${idx}" onclick="toggleExplain(${idx})">
+              💡 ${isExpVisible ? 'ซ่อนเฉลย' : 'ดูเฉลย & วิธีคิด'}
+            </button>
+            <span id="status-span-${idx}" style="font-size: 0.74rem; font-weight: 700; color: ${hasAnswered ? (userChoice === q.ans ? 'var(--success)' : 'var(--danger)') : 'var(--text-muted)'}">
+              ${hasAnswered ? (userChoice === q.ans ? '✅ ตอบถูก' : '❌ ตอบผิด') : 'ยังไม่ได้ตอบ'}
+            </span>
+          </div>
+          <div class="exp-panel${isExpVisible ? ' show' : ''}" id="exp-${idx}">
+            <div class="exp-title">📝 คำเฉลย & คำอธิบาย:</div>
+            <div>${q.exp}</div>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateStats();
+    }
+
+    // High-performance surgical DOM updater: 0ms latency, zero page stutter
+    function updateCardDOM(idx) {
+      const q = QUESTIONS[idx];
+      const card = document.getElementById('q-card-' + idx);
+      if (!card) return;
+
+      const userChoice = userAnswers[idx];
+      const hasAnswered = userChoice !== undefined;
+      const isExpVisible = !!showExplanations[idx];
+
+      if (hasAnswered) {
+        card.classList.add('answered');
+      } else {
+        card.classList.remove('answered');
+      }
+
+      // Update choices
+      const choiceElements = card.querySelectorAll('.choice-item');
+      choiceElements.forEach((item, cIdx) => {
+        item.className = 'choice-item';
+        if (hasAnswered) {
+          if (cIdx === userChoice) {
+            item.classList.add(userChoice === q.ans ? 'is-correct' : 'is-wrong');
+            item.classList.add('selected');
+          } else if (cIdx === q.ans && (hasAnswered || isExpVisible)) {
+            item.classList.add('is-correct');
+          }
+        }
+      });
+
+      // Update status span
+      const statusSpan = document.getElementById('status-span-' + idx);
+      if (statusSpan) {
+        if (hasAnswered) {
+          const isCorrect = userChoice === q.ans;
+          statusSpan.innerText = isCorrect ? '✅ ตอบถูก' : '❌ ตอบผิด';
+          statusSpan.style.color = isCorrect ? 'var(--success)' : 'var(--danger)';
+        } else {
+          statusSpan.innerText = 'ยังไม่ได้ตอบ';
+          statusSpan.style.color = 'var(--text-muted)';
+        }
+      }
+
+      // Update explain panel & button
+      const expPanel = document.getElementById('exp-' + idx);
+      const expBtn = document.getElementById('btn-exp-' + idx);
+      if (expPanel) {
+        if (isExpVisible) {
+          expPanel.classList.add('show');
+        } else {
+          expPanel.classList.remove('show');
+        }
+      }
+      if (expBtn) {
+        if (isExpVisible) {
+          expBtn.classList.add('active');
+          expBtn.innerText = '💡 ซ่อนเฉลย';
+        } else {
+          expBtn.classList.remove('active');
+          expBtn.innerText = '💡 ดูเฉลย & วิธีคิด';
+        }
+      }
+
+      // Update number grid button
+      const numBtn = document.getElementById('num-btn-' + idx);
+      if (numBtn) {
+        numBtn.className = 'num-btn';
+        if (hasAnswered) {
+          numBtn.classList.add('answered');
+          numBtn.classList.add(userChoice === q.ans ? 'correct' : 'incorrect');
+        }
+      }
+    }
+
+    function chooseAnswer(qIdx, cIdx) {
+      userAnswers[qIdx] = cIdx;
+      showExplanations[qIdx] = true;
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(userAnswers)); } catch(e){}
+      updateCardDOM(qIdx);
+      updateStats();
+    }
+
+    function toggleExplain(qIdx) {
+      showExplanations[qIdx] = !showExplanations[qIdx];
+      updateCardDOM(qIdx);
+    }
+
+    function toggleAllExplanations() {
+      const anyClosed = QUESTIONS.some((_, i) => !showExplanations[i]);
+      QUESTIONS.forEach((_, i) => { 
+        showExplanations[i] = anyClosed; 
+        updateCardDOM(i);
+      });
+    }
+
+    function updateStats() {
+      const total = QUESTIONS.length;
+      let answered = 0;
+      let correct = 0;
+
+      QUESTIONS.forEach((q, i) => {
+        if (userAnswers[i] !== undefined) {
+          answered++;
+          if (userAnswers[i] === q.ans) correct++;
+        }
+      });
+
+      const pct = Math.round((answered / total) * 100);
+      const ansDisplay = document.getElementById('answeredDisplay');
+      const liveDisplay = document.getElementById('liveScoreDisplay');
+      const pctDisplay = document.getElementById('percentDisplay');
+      const pBar = document.getElementById('progressBar');
+      const tabSpan = document.getElementById('tabCountSpan');
+      const bottomMainBtn = document.getElementById('bottomMainBtn');
+
+      if (ansDisplay) ansDisplay.innerText = answered + '/' + total;
+      if (liveDisplay) liveDisplay.innerText = correct;
+      if (pctDisplay) pctDisplay.innerText = pct + '%';
+      if (pBar) pBar.style.width = pct + '%';
+      if (tabSpan) tabSpan.innerText = answered + '/' + total;
+      
+      if (bottomMainBtn && currentActiveTab === 'quiz') {
+        bottomMainBtn.innerText = '📊 ส่งตรวจคะแนน (' + answered + '/' + total + ')';
+      }
+    }
+
+    function updateSummaryDisplay() {
+      const total = QUESTIONS.length;
+      let correct = 0;
+      let wrong = 0;
+      let skipped = 0;
+
+      QUESTIONS.forEach((q, i) => {
+        if (userAnswers[i] === undefined) {
+          skipped++;
+        } else if (userAnswers[i] === q.ans) {
+          correct++;
+        } else {
+          wrong++;
+        }
+      });
+
+      const scoreVal = document.getElementById('finalScoreVal');
+      const statC = document.getElementById('statCorrect');
+      const statW = document.getElementById('statWrong');
+      const statS = document.getElementById('statSkipped');
+
+      if (scoreVal) scoreVal.innerText = correct;
+      if (statC) statC.innerText = correct;
+      if (statW) statW.innerText = wrong;
+      if (statS) statS.innerText = skipped;
+
+      const badge = document.getElementById('finalPassBadge');
+      const feedback = document.getElementById('finalFeedbackText');
+
+      if (badge && feedback) {
+        if (correct >= 60) {
+          badge.className = 'pass-badge pass';
+          badge.innerText = '🎉 ผ่านเกณฑ์มาตรฐาน (ได้ ' + correct + '/100 คะแนน)';
+          feedback.innerText = 'ยอดเยี่ยมมาก! คุณมีความรู้ความพร้อมระดับสูง สามารถนำเทคนิคเหล่านี้ไปใช้ในสนามสอบจริงได้อย่างมั่นใจ';
+        } else {
+          badge.className = 'pass-badge fail';
+          badge.innerText = '⚠️ ยังไม่ผ่านเกณฑ์ 60% (ได้ ' + correct + '/100 คะแนน)';
+          feedback.innerText = 'ลองอ่านสรุปเนื้อหาติวอีกรอบ และกดปุ่ม "ดูเฉพาะข้อที่ตอบผิด" เพื่อทบทวนจุดที่พลาดบ่อยครับ';
+        }
+      }
+    }
+
+    function submitAndGoSummary() {
+      updateSummaryDisplay();
+      switchTab('score');
+    }
+
+    function filterReview(type) {
+      switchTab('quiz');
+      QUESTIONS.forEach((q, i) => {
+        const card = document.getElementById('q-card-' + i);
+        if (!card) return;
+        if (type === 'wrong') {
+          if (userAnswers[i] !== undefined && userAnswers[i] !== q.ans) {
+            card.style.display = 'block';
+            showExplanations[i] = true;
+          } else {
+            card.style.display = 'none';
+          }
+        } else {
+          card.style.display = 'block';
+        }
+      });
+    }
+
+    function resetQuiz() {
+      const answeredCount = Object.keys(userAnswers).length;
+      const total = QUESTIONS.length;
+
+      // If user hasn't completed all 100 questions, show a clear warning
+      if (answeredCount < total) {
+        const proceed = confirm(
+          '⚠️ แจ้งเตือน: คุณยังตอบคำถามไม่ครบ 100 ข้อ (ทำไปแล้ว ' + answeredCount + '/' + total + ' ข้อ)\n\n' +
+          'หากต้องการรีเซ็ตเพื่อเริ่มทำใหม่ทั้งหมด กรุณากด "ตกลง (OK)"\n' +
+          'หรือกด "ยกเลิก (Cancel)" เพื่อทำข้อสอบต่อให้ครบ 100 ข้อ'
+        );
+        if (!proceed) return;
+      } else {
+        if (!confirm('🎉 คุณทำข้อสอบครบ 100 ข้อแล้ว!\nต้องการรีเซ็ตคำตอบทั้งหมดเพื่อเริ่มทำใหม่อีกครั้งหรือไม่?')) {
+          return;
+        }
+      }
+
+      userAnswers = {};
+      showExplanations = {};
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
+      renderQuestions();
+      renderNumberGrid();
+      updateSummaryDisplay();
+      switchTab('quiz');
+    }
+
+    // Initialize
+    renderNumberGrid();
+    renderQuestions();
+
+    function checkInitialTab() {
+      try {
+        const hash = (location.hash || '').toLowerCase();
+        const search = (location.search || '').toLowerCase();
+        if (hash === '#quiz' || search.includes('tab=quiz') || hash.includes('quiz')) {
+          switchTab('quiz');
+        } else if (hash === '#score' || search.includes('tab=score')) {
+          switchTab('score');
+        }
+      } catch(e){}
+    }
+
+    checkInitialTab();
+
+    // Listen to hash changes (e.g. navigation or URL updates)
+    window.addEventListener('hashchange', checkInitialTab);
+
+    // Explicitly attach click listeners to buttons for maximum touch compatibility
+    try {
+      const startBtn = document.getElementById('btnStartQuiz100');
+      if (startBtn) {
+        startBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          switchTab('quiz');
+        });
+      }
+    } catch(e){}
+  </script>
+</body>
+</html>
