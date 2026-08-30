@@ -285,7 +285,7 @@ export const POLICE_SUBJECTS: SubjectInfo[] = [
       { title: 'ป.อาญา ม.67 จำเป็น', detail: 'หลีกเลี่ยงไม่ได้ + ไม่เกินสมควร = ไม่ต้องรับโทษ' }
     ],
     sampleQuestionsCount: 40,
-    externalLink: 'PoliceLaw.html'
+    externalLink: 'https://tontakankeawpang321-glitch.github.io/nco-io/PoliceLaw.html'
   }
 ];
 
