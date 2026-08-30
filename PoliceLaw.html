@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คลังความรู้ & ติวเข้มกฎหมายนายสิบตำรวจ - ฉบับหนังสือสมบูรณ์แบบ</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts: Sarabun & Prompt -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        police: {
+                            900: '#2a080c',
+                            800: '#421016',
+                            700: '#641720', // สีเลือดหมูเข้ม
+                            600: '#851e2a',
+                            500: '#a62836',
+                            100: '#f8e9eb',
+                            50: '#fdf2f4',
+                        },
+                        gold: {
+                            600: '#b8860b',
+                            500: '#d4af37',
+                            400: '#e0c158',
+                            300: '#ebd785',
+                            100: '#fcf8e3',
+                            50: '#fffdf0',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Sarabun', 'sans-serif'],
+                        display: ['Prompt', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f3f4f6; color: #1f2937; }
+        .police-gradient { background: linear-gradient(135deg, #421016 0%, #641720 50%, #851e2a 100%); }
+        .gold-gradient { background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%); }
+        .card-shadow { box-shadow: 0 10px 25px -5px rgba(66, 16, 22, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04); }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #851e2a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #641720; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        /* Perspective for Flashcard 3D flip */
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans antialiased bg-slate-100 selection:bg-police-700 selection:text-white">
+
+    <!-- TOP NAVBAR -->
+    <header class="police-gradient text-white sticky top-0 z-50 border-b-4 border-gold-500 shadow-lg">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo Brand -->
+                <div class="flex items-center space-x-3 cursor-pointer group" onclick="switchTab('home')">
+                    <div class="w-10 h-10 rounded-xl bg-gold-500/20 border border-gold-400/40 flex items-center justify-center text-gold-400 text-xl group-hover:scale-105 transition">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <div class="font-display font-bold text-base sm:text-lg leading-tight text-gold-400 tracking-wide uppercase">Police Law Vault</div>
+                        <div class="text-[11px] text-gray-300 font-medium tracking-wider">คลังคู่มือ & ติวเข้มกฎหมายนายสิบตำรวจ</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav Tabs -->
+                <nav class="hidden lg:flex space-x-1 font-display text-sm font-medium">
+                    <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-lg transition flex items-center space-x-2 text-white/90 hover:bg-white/10 hover:text-white">
+                        <i class="fa-solid fa-house text-xs"></i><span>หน้าหลัก</span>
+                    </button>
+                    <button onclick="switchTab('book')" id="nav-book" class="nav-btn px-4 py-2 rounded-lg transition flex items-center space-x-2 text-white/90 hover:bg-white/10 hover:text-white">
+                        <i class="fa-solid fa-book-bookmark text-xs"></i><span>ตำราเรียนฉบับเต็ม</span>
+                    </button>
+                    <button onclick="switchTab('techniques')" id="nav-techniques" class="nav-btn px-4 py-2 rounded-lg transition flex items-center space-x-2 text-white/90 hover:bg-white/10 hover:text-white">
+                        <i class="fa-solid fa-lightbulb text-xs text-gold-400"></i><span>สูตรลัด & เทคนิคสอบ</span>
+                    </button>
+                    <button onclick="switchTab('games')" id="nav-games" class="nav-btn px-4 py-2 rounded-lg transition flex items-center space-x-2 text-white/90 hover:bg-white/10 hover:text-white">
+                        <i class="fa-solid fa-gamepad text-xs text-emerald-400"></i><span>มินิเกมช่วยจำ</span>
+                    </button>
+                    <button onclick="switchTab('quiz')" id="nav-quiz" class="nav-btn px-4 py-2 bg-gold-500 hover:bg-gold-400 text-police-900 rounded-lg font-bold shadow-md transition flex items-center space-x-2 ml-2">
+                        <i class="fa-solid fa-pen-to-square"></i><span>ตะลุยโจทย์สอบ</span>
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg hover:bg-white/10 text-gray-200">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu (Dropdown) -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-white/10 bg-police-900/95 backdrop-blur-md px-4 pt-3 pb-5 space-y-2 font-display text-sm">
+            <button onclick="switchTab('home')" class="w-full text-left px-3 py-2.5 rounded-lg text-gray-200 hover:bg-white/10 flex items-center space-x-3">
+                <i class="fa-solid fa-house w-5 text-gold-400"></i><span>หน้าหลัก</span>
+            </button>
+            <button onclick="switchTab('book')" class="w-full text-left px-3 py-2.5 rounded-lg text-gray-200 hover:bg-white/10 flex items-center space-x-3">
+                <i class="fa-solid fa-book-bookmark w-5 text-gold-400"></i><span>ตำราเรียนฉบับเต็ม</span>
+            </button>
+            <button onclick="switchTab('techniques')" class="w-full text-left px-3 py-2.5 rounded-lg text-gray-200 hover:bg-white/10 flex items-center space-x-3">
+                <i class="fa-solid fa-lightbulb w-5 text-gold-400"></i><span>สูตรลัด & เทคนิคสอบ</span>
+            </button>
+            <button onclick="switchTab('games')" class="w-full text-left px-3 py-2.5 rounded-lg text-gray-200 hover:bg-white/10 flex items-center space-x-3">
+                <i class="fa-solid fa-gamepad w-5 text-emerald-400"></i><span>มินิเกมช่วยจำ</span>
+            </button>
+            <button onclick="switchTab('quiz')" class="w-full text-left px-3 py-2.5 rounded-lg bg-gold-500 text-police-900 font-bold flex items-center space-x-3 mt-2">
+                <i class="fa-solid fa-pen-to-square w-5"></i><span>เริ่มตะลุยโจทย์สอบ</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-6 lg:p-8">
+
+        <!-- ========================================== -->
+        <!-- 1. HOME SCREEN -->
+        <!-- ========================================== -->
+        <section id="screen-home" class="space-y-8 animate-fade-in">
+            <!-- Hero Banner -->
+            <div class="relative bg-police-800 rounded-3xl overflow-hidden shadow-2xl text-white border border-police-600">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,#851e2a_0%,transparent_60%)] opacity-80"></div>
+                <div class="relative z-10 p-6 sm:p-10 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+                    <div class="space-y-4 text-center lg:text-left max-w-2xl">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold-500/20 text-gold-300 border border-gold-500/30 text-xs font-semibold">
+                            <i class="fa-solid fa-award"></i>
+                            <span>หลักสูตรสอบเข้าข้าราชการตำรวจปีล่าสุด</span>
+                        </div>
+                        <h1 class="font-display text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+                            คัมภีร์กฎหมายเตรียมสอบ <span class="text-gold-400 block sm:inline">นายสิบตำรวจ</span>
+                        </h1>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            รวมสรุปประมวลกฎหมายอาญา, วิ.อาญา, แพ่ง และกฎหมายที่เกี่ยวข้องสำหรับสายงานปราบปราม อำนวยการ และสอบสวน พร้อมเทคนิคตัดช้อยส์และมินิเกมฝึกความจำ
+                        </p>
+                        <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-3">
+                            <button onclick="switchTab('book')" class="px-6 py-3 rounded-xl bg-white text-police-900 font-display font-bold text-sm shadow-md hover:bg-slate-100 transition flex items-center space-x-2">
+                                <i class="fa-solid fa-book-open text-police-700"></i><span>เริ่มอ่านตำราเรียน</span>
+                            </button>
+                            <button onclick="switchTab('games')" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold text-sm shadow-md transition flex items-center space-x-2">
+                                <i class="fa-solid fa-gamepad"></i><span>เล่นเกมช่วยจำ</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Stat Card / Dashboard Badge -->
+                    <div class="w-full lg:w-auto grid grid-cols-2 gap-3 sm:gap-4 shrink-0 font-display">
+                        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/15 text-center">
+                            <div class="text-2xl sm:text-3xl font-black text-gold-400">100%</div>
+                            <div class="text-xs text-slate-300">ตรงตามโครงสร้างสอบ</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/15 text-center">
+                            <div class="text-2xl sm:text-3xl font-black text-emerald-400">5 บท</div>
+                            <div class="text-xs text-slate-300">หมวดหมู่กฎหมายหลัก</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/15 text-center">
+                            <div class="text-2xl sm:text-3xl font-black text-sky-400">3 โหมด</div>
+                            <div class="text-xs text-slate-300">มินิเกมช่วยจำ</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/15 text-center">
+                            <div class="text-2xl sm:text-3xl font-black text-purple-300">100+</div>
+                            <div class="text-xs text-slate-300">คลังข้อสอบพร้อมเฉลย</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Navigation Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Book Card -->
+                <div onclick="switchTab('book')" class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow hover:-translate-y-1 transition duration-200 cursor-pointer group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-police-50 text-police-700 flex items-center justify-center text-xl mb-4 group-hover:bg-police-700 group-hover:text-white transition">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-police-900 mb-1">1. ตำราเรียนสมบูรณ์แบบ</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">อ่านสรุปหลักกฎหมายแบ่งเป็นบทๆ พร้อมตัวบทมาตรา และตัวอย่างคำพิพากษาฎีกาสำคัญ</p>
+                    </div>
+                    <span class="mt-4 inline-flex items-center text-xs font-bold text-police-700 group-hover:underline">เปิดตำราอ่าน <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                </div>
+
+                <!-- Hacks Card -->
+                <div onclick="switchTab('techniques')" class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow hover:-translate-y-1 transition duration-200 cursor-pointer group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4 group-hover:bg-amber-500 group-hover:text-white transition">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-police-900 mb-1">2. สูตรลัด & เทคนิคสอบ</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">คำท่องจำสูตรเด็ด เทคนิคแยกแยะฐานความผิด และสูตรตัดตัวเลือกในห้องสอบ</p>
+                    </div>
+                    <span class="mt-4 inline-flex items-center text-xs font-bold text-amber-600 group-hover:underline">ดูเทคนิค <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                </div>
+
+                <!-- Games Card -->
+                <div onclick="switchTab('games')" class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow hover:-translate-y-1 transition duration-200 cursor-pointer group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-police-900 mb-1">3. มินิเกมช่วยจำ</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">ฝึกความจำด้วย Flashcards, เกมจับคู่คีย์เวิร์ด และสปีดควิซ 60 วินาที</p>
+                    </div>
+                    <span class="mt-4 inline-flex items-center text-xs font-bold text-emerald-600 group-hover:underline">เข้าเล่นเกม <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                </div>
+
+                <!-- Test Quiz Card -->
+                <div onclick="switchTab('quiz')" class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow hover:-translate-y-1 transition duration-200 cursor-pointer group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl mb-4 group-hover:bg-rose-600 group-hover:text-white transition">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-police-900 mb-1">4. คลังข้อสอบจริง</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">ทำข้อสอบ 100 ข้อ พร้อมระบบตรวจอัตโนมัติ คำอธิบายกฎหมาย และสรุปคะแนน</p>
+                    </div>
+                    <span class="mt-4 inline-flex items-center text-xs font-bold text-rose-600 group-hover:underline">ทำแบบทดสอบ <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 2. DIGITAL BOOK SCREEN (หนังสือตำราเรียนฉบับเต็ม) -->
+        <!-- ========================================== -->
+        <section id="screen-book" class="hidden space-y-6 animate-fade-in">
+            <!-- Book Controls Topbar -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 sticky top-20 z-30 backdrop-blur-md bg-white/90">
+                <div class="flex items-center space-x-3 w-full sm:w-auto">
+                    <i class="fa-solid fa-book-open text-police-700 text-xl"></i>
+                    <div>
+                        <h2 class="font-display font-bold text-base text-police-900">ตำราเรียนกฎหมายสาระสำคัญ</h2>
+                        <p class="text-xs text-slate-500">เลือกบทเรียนเพื่ออ่านรายละเอียดตัวบทและตัวอย่างคดี</p>
+                    </div>
+                </div>
+
+                <!-- Text Controls & Search -->
+                <div class="flex items-center space-x-2 w-full sm:w-auto justify-end">
+                    <div class="relative w-full sm:w-48">
+                        <input type="text" id="book-search" oninput="filterBookContent()" placeholder="ค้นหาบทเรียน/มาตรา..." class="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-police-600">
+                        <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2.5 text-slate-400 text-xs"></i>
+                    </div>
+                    <button onclick="adjustFontSize(1)" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-bold text-slate-700" title="เพิ่มขนาดอักษร">A+</button>
+                    <button onclick="adjustFontSize(-1)" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-bold text-slate-700" title="ลดขนาดอักษร">A-</button>
+                </div>
+            </div>
+
+            <!-- Book Layout: Sidebar Chapter List + Reader Content -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                <!-- Sidebar Table of Contents -->
+                <div class="lg:col-span-1 space-y-2">
+                    <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm font-display">
+                        <h3 class="font-bold text-xs uppercase tracking-wider text-slate-400 mb-3 px-2">สารบัญบทเรียน (Chapters)</h3>
+                        <div id="chapter-list" class="space-y-1 text-xs sm:text-sm font-medium">
+                            <!-- JS Populated Chapter Buttons -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reader Panel -->
+                <div class="lg:col-span-3">
+                    <div id="book-reader" class="bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-sm leading-relaxed space-y-8 text-slate-800 transition-all">
+                        <!-- JS Loaded Chapter Content -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 3. TECHNIQUES & EXAM HACKS SCREEN -->
+        <!-- ========================================== -->
+        <section id="screen-techniques" class="hidden space-y-6 animate-fade-in">
+            <div class="bg-gradient-to-r from-amber-600 to-amber-500 rounded-3xl p-6 sm:p-8 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center md:text-left">
+                    <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">Exam Victory Hacks</span>
+                    <h2 class="font-display text-2xl sm:text-3xl font-black">รวมเทคนิคสอบ & สูตรท่องจำกฎหมาย</h2>
+                    <p class="text-amber-100 text-xs sm:text-sm max-w-xl">เปลี่ยนกฎหมายเรื่องยากให้จำง่ายด้วยสูตรย่อ Mnemonic, เทคนิคการวิเคราะห์โจทย์ และกลยุทธ์ตัดตัวเลือกในห้องสอบ</p>
+                </div>
+                <div class="w-16 h-16 sm:w-20 sm:w-20 bg-white/10 rounded-2xl border border-white/20 flex items-center justify-center text-3xl sm:text-4xl shrink-0">
+                    <i class="fa-solid fa-lightbulb text-gold-300"></i>
+                </div>
+            </div>
+
+            <!-- Techniques Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Formula 1: Property Crimes Mnemonic -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-lg bg-police-100 text-police-700 font-bold flex items-center justify-center text-sm">01</span>
+                        <h3 class="font-display font-bold text-lg text-police-900">สูตรจำแยกแยะ "ความผิดเกี่ยวกับทรัพย์"</h3>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        ข้อสอบตำรวจชอบออกสับสนเรื่องฐานความผิดเกี่ยวกับทรัพย์ ให้ใช้คีย์เวิร์ดตัดสินดังนี้:
+                    </p>
+                    <div class="space-y-2 text-xs sm:text-sm">
+                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="font-bold text-police-700">• ลักทรัพย์:</span> "เอาไป" โดยทุจริต (ไม่มีการขู่ หรือใช้กำลัง)
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="font-bold text-police-700">• วิ่งราวทรัพย์:</span> ลักทรัพย์ + <span class="text-rose-600 font-bold">"ฉกฉวยเอาซึ่งหน้า"</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="font-bold text-police-700">• ชิงทรัพย์:</span> ลักทรัพย์ + <span class="text-rose-600 font-bold">"ใช้กำลังประทุษร้าย/ขู่ขู่เข็ญทันที"</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="font-bold text-police-700">• ปล้นทรัพย์:</span> ชิงทรัพย์ + <span class="text-rose-600 font-bold">"ร่วมกัน 3 คนขึ้นไป"</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="font-bold text-police-700">• ยักยอกทรัพย์:</span> <span class="text-rose-600 font-bold">"ครอบครองทรัพย์เขาอยู่แล้ว"</span> แล้วเบียดบังเอาไป
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 2: Option Elimination Strategy -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 font-bold flex items-center justify-center text-sm">02</span>
+                        <h3 class="font-display font-bold text-lg text-police-900">เทคนิคตัดตัวเลือก (Option Elimination)</h3>
+                    </div>
+                    <ul class="space-y-3 text-xs sm:text-sm text-slate-600">
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1 shrink-0"></i>
+                            <span><b>คำว่า "เด็ดขาด/เสมอ/ทุกกรณี":</b> ช้อยส์ที่มีคำว่า "ต้องทำเสมอ" หรือ "ห้ามเด็ดขาดทุกกรณี" มักจะ <span class="text-rose-600 font-bold">ผิด</span> เพราะกฎหมายมักมี "ข้อยกเว้น" เสมอ</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1 shrink-0"></i>
+                            <span><b>ระวังการสลับอำนาจ:</b> เช่น โจทย์ถามว่าใครมีอำนาจออก "หมายจับ/หมายค้น" ตอบทันทีว่า <span class="text-police-700 font-bold">"ศาล"</span> เท่านั้น (ตำรวจออกหมายไม่ได้ ได้แค่ยื่นขอศาล)</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1 shrink-0"></i>
+                            <span><b>ดูเจตนาเป็นหลัก:</b> ในกฎหมายอาญา ถ้าโจทย์บอกว่า "ไม่รู้", "สำคัญผิด", หรือ "เหตุสุดวิสัย" ให้ดักทางเรื่อง "ขาดเจตนา" หรือ "ไม่มีความผิด" ไว้ก่อน</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Formula 3: SQ3R Law Reading technique -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-lg bg-blue-100 text-blue-800 font-bold flex items-center justify-center text-sm">03</span>
+                        <h3 class="font-display font-bold text-lg text-police-900">เทคนิคอ่านกฎหมายแบบ SQ3R</h3>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        <div class="p-3 bg-slate-50 rounded-xl"><b>S (Survey):</b> กวาดสายตาดูหัวข้อใหญ่ สภาพปัญหา และองค์ประกอบมาตรา</div>
+                        <div class="p-3 bg-slate-50 rounded-xl"><b>Q (Question):</b> ตั้งคำถาม "ใคร ทำอะไร ได้รับโทษอย่างไร มีข้อยกเว้นไหม"</div>
+                        <div class="p-3 bg-slate-50 rounded-xl"><b>R1 (Read):</b> อ่านเนื้อหาอย่างละเอียดเน้นคีย์เวิร์ดสีเข้ม</div>
+                        <div class="p-3 bg-slate-50 rounded-xl"><b>R2 (Recite):</b> ท่องสรุปหลักกฎหมายด้วยคำพูดของตัวเอง</div>
+                    </div>
+                </div>
+
+                <!-- Formula 4: Time Management -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-lg bg-purple-100 text-purple-800 font-bold flex items-center justify-center text-sm">04</span>
+                        <h3 class="font-display font-bold text-lg text-police-900">การบริหารเวลาทำข้อสอบจริง</h3>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        ข้อสอบตำรวจมีเวลาทำเฉลี่ยข้อละ <b>ไม่เกิน 1 นาที 12 วินาที</b>:
+                    </p>
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between items-center p-2 bg-slate-50 rounded-lg">
+                            <span>ข้อสอบความจำตัวบท:</span> <span class="font-bold text-emerald-600">30-40 วินาที/ข้อ</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2 bg-slate-50 rounded-lg">
+                            <span>ข้อสอบโจทย์สถานการณ์จำลอง:</span> <span class="font-bold text-amber-600">1.5 นาที/ข้อ</span>
+                        </div>
+                        <div class="p-2 bg-rose-50 text-rose-800 rounded-lg font-medium">
+                            🚨 หากติดข้อไหนเกิน 2 นาที ให้กาทำเครื่องหมายไว้ แล้วข้ามไปทำข้ออื่นทันที!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 4. GAMIFICATION / MINI-GAMES HUB -->
+        <!-- ========================================== -->
+        <section id="screen-games" class="hidden space-y-6 animate-fade-in">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-slate-200">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-display font-bold text-lg text-police-900">ศูนย์มินิเกมช่วยจำข้อสอบ</h2>
+                        <p class="text-xs text-slate-500">เลือกเกมเพื่อทบทวนความรู้และเพิ่มความแม่นยำในการทำข้อสอบ</p>
+                    </div>
+                </div>
+
+                <!-- Game Selector Tabs -->
+                <div class="flex space-x-1 font-display text-xs bg-slate-100 p-1 rounded-xl">
+                    <button onclick="selectGame('flashcard')" id="tab-game-flashcard" class="px-3 py-1.5 rounded-lg font-bold transition">🎴 Flashcards</button>
+                    <button onclick="selectGame('match')" id="tab-game-match" class="px-3 py-1.5 rounded-lg font-bold transition">🧩 จับคู่คีย์เวิร์ด</button>
+                    <button onclick="selectGame('speed')" id="tab-game-speed" class="px-3 py-1.5 rounded-lg font-bold transition">⚡ สปีดควิซ 60s</button>
+                </div>
+            </div>
+
+            <!-- GAME 1: FLASHCARDS -->
+            <div id="game-flashcard-view" class="space-y-6">
+                <div class="text-center space-y-1">
+                    <h3 class="font-display font-bold text-xl text-police-900">🎴 การ์ดทบทวนมาตรา & นิยามสำคัญ</h3>
+                    <p class="text-xs text-slate-500">คลิกที่การ์ดเพื่อพลิกดูคำตอบ/เฉลย</p>
+                </div>
+
+                <!-- Flashcard Container -->
+                <div class="max-w-md mx-auto h-72 perspective-1000 cursor-pointer" onclick="flipFlashcard()">
+                    <div id="flashcard-inner" class="relative w-full h-full rounded-3xl transition-transform duration-500 transform-style-3d shadow-xl border-2 border-police-600 bg-white">
+                        <!-- Front side -->
+                        <div class="absolute inset-0 w-full h-full rounded-3xl p-6 flex flex-col justify-between backface-hidden police-gradient text-white">
+                            <div class="flex justify-between items-center text-xs font-display text-gold-400">
+                                <span><i class="fa-solid fa-circle-question"></i> การ์ดคำถาม</span>
+                                <span id="fc-counter">1/10</span>
+                            </div>
+                            <div class="text-center my-auto">
+                                <h4 id="fc-question" class="font-display font-bold text-lg sm:text-xl text-white">กำลังโหลดคำถาม...</h4>
+                            </div>
+                            <div class="text-center text-xs text-slate-300">
+                                <i class="fa-solid fa-rotate mr-1"></i> แตะเพื่อพลิกดูคำตอบ
+                            </div>
+                        </div>
+
+                        <!-- Back side -->
+                        <div class="absolute inset-0 w-full h-full rounded-3xl p-6 flex flex-col justify-between backface-hidden rotate-y-180 bg-white text-slate-800">
+                            <div class="flex justify-between items-center text-xs font-display text-police-700 font-bold">
+                                <span>💡 คำอธิบายเฉลย</span>
+                                <span>เฉลย</span>
+                            </div>
+                            <div class="text-center my-auto space-y-2">
+                                <p id="fc-answer" class="font-bold text-base text-police-900">คำตอบ...</p>
+                                <p id="fc-detail" class="text-xs text-slate-600">รายละเอียดเพิ่มเติม...</p>
+                            </div>
+                            <div class="text-center text-xs text-slate-400">
+                                แตะเพื่อพลิกกลับ
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flashcard Controls -->
+                <div class="flex justify-center items-center space-x-4 font-display">
+                    <button onclick="prevFlashcard()" class="px-5 py-2.5 bg-slate-200 hover:bg-slate-300 rounded-xl font-bold text-xs text-slate-700 transition">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> ก่อนหน้า
+                    </button>
+                    <button onclick="nextFlashcard()" class="px-6 py-2.5 bg-police-700 hover:bg-police-800 rounded-xl font-bold text-xs text-white shadow-md transition">
+                        ถัดไป <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- GAME 2: TERM MATCHING -->
+            <div id="game-match-view" class="hidden space-y-6">
+                <div class="text-center space-y-1">
+                    <h3 class="font-display font-bold text-xl text-police-900">🧩 เกมจับคู่คำศัพท์ & หลักกฎหมาย</h3>
+                    <p class="text-xs text-slate-500">จับคู่ระหว่าง "ชื่อฐานความผิด/มาตรา" (ฝั่งซ้าย) ให้ตรงกับ "ความหมาย/องค์ประกอบ" (ฝั่งขวา)</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto" id="match-grid">
+                    <!-- JS generated matching items -->
+                </div>
+
+                <div class="text-center">
+                    <button onclick="initMatchGame()" class="px-5 py-2 bg-slate-200 hover:bg-slate-300 rounded-xl text-xs font-bold text-slate-700">
+                        <i class="fa-solid fa-arrows-rotate mr-1"></i> เริ่มเกมจับคู่ใหม่
+                    </button>
+                </div>
+            </div>
+
+            <!-- GAME 3: SPEED RUSH -->
+            <div id="game-speed-view" class="hidden space-y-6">
+                <div class="max-w-xl mx-auto bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 card-shadow text-center space-y-6">
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <div class="font-display font-bold text-lg text-police-900">⚡ สปีดควิซ True/False</div>
+                        <div class="flex items-center space-x-3 font-display">
+                            <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-bold" id="speed-timer">⏱️ 60s</span>
+                            <span class="text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-bold" id="speed-score">คะแนน: 0</span>
+                        </div>
+                    </div>
+
+                    <div id="speed-quiz-box" class="space-y-6 py-4">
+                        <h4 id="speed-question" class="font-display font-bold text-lg sm:text-xl text-slate-800">กดปุ่มเริ่มเกมเพื่อวัดความไว!</h4>
+                        <div class="flex justify-center space-x-4">
+                            <button onclick="answerSpeed(true)" id="btn-speed-true" disabled class="w-32 py-4 bg-emerald-500 hover:bg-emerald-600 disabled:opacity-40 text-white rounded-2xl font-display font-bold text-lg shadow-md transition">
+                                <i class="fa-solid fa-circle-check mr-1"></i> ถูกต้อง
+                            </button>
+                            <button onclick="answerSpeed(false)" id="btn-speed-false" disabled class="w-32 py-4 bg-rose-500 hover:bg-rose-600 disabled:opacity-40 text-white rounded-2xl font-display font-bold text-lg shadow-md transition">
+                                <i class="fa-solid fa-circle-xmark mr-1"></i> ไม่จริง
+                            </button>
+                        </div>
+                    </div>
+
+                    <button onclick="startSpeedGame()" id="btn-start-speed" class="px-8 py-3 bg-gold-500 hover:bg-gold-400 text-police-900 rounded-xl font-display font-bold text-sm shadow-md transition">
+                        ▶️ เริ่มจับเวลา 60 วินาที
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 5. QUIZ ENGINE SCREEN (จำลองการสอบจริง) -->
+        <!-- ========================================== -->
+        <section id="screen-quiz" class="hidden space-y-6 animate-fade-in">
+            <!-- Quiz Progress Sticky Bar -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm sticky top-20 z-40 backdrop-blur-md bg-white/90">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
+                    <div class="w-full sm:w-2/3 space-y-1">
+                        <div class="flex justify-between text-xs font-display font-bold">
+                            <span id="quiz-status-text" class="text-police-800">ข้อที่ 1/20</span>
+                            <span id="quiz-score-live" class="text-gold-600">คะแนนสะสม: 0</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                            <div id="quiz-progress-bar" class="bg-police-700 h-2.5 rounded-full transition-all duration-300" style="width: 5%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Category Selector filter -->
+                    <select id="quiz-category-filter" onchange="filterQuizCategory()" class="w-full sm:w-auto text-xs border border-slate-300 rounded-xl px-3 py-2 font-display bg-slate-50 focus:outline-none focus:ring-2 focus:ring-police-600">
+                        <option value="all">📚 ทุกหมวดวิชากฎหมาย (คละข้อสอบ)</option>
+                        <option value="อาญา">⚖️ กฎหมายอาญา (ป.อ.)</option>
+                        <option value="วิอาญา">🔍 กฎหมายวิธีพิจารณาความอาญา (ป.วิ.อ.)</option>
+                        <option value="แพ่ง">📜 กฎหมายแพ่งและพาณิชย์ (ป.พ.พ.)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-6 sm:p-10 min-h-[420px] flex flex-col justify-between space-y-6">
+                <div>
+                    <!-- Question Header -->
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <span id="q-category-badge" class="px-3 py-1 rounded-full bg-police-50 text-police-700 text-xs font-bold font-display">
+                            หมวดกฎหมายอาญา
+                        </span>
+                        <span id="q-number-pill" class="text-xs text-slate-400 font-bold font-display">ข้อสอบมาตรฐาน</span>
+                    </div>
+
+                    <!-- Question Text -->
+                    <h3 id="q-text-main" class="font-display font-bold text-base sm:text-xl text-slate-800 leading-relaxed mb-6">
+                        คำถามกำลังโหลด...
+                    </h3>
+
+                    <!-- Choices Container -->
+                    <div id="q-options-container" class="space-y-3 font-sans">
+                        <!-- JS inserted choice buttons -->
+                    </div>
+                </div>
+
+                <!-- Explainer Box (Hidden by default) -->
+                <div id="q-explainer" class="hidden p-5 rounded-2xl border-2 transition-all space-y-2 text-xs sm:text-sm">
+                    <div id="q-exp-status" class="font-display font-bold text-base"></div>
+                    <p id="q-exp-text" class="text-slate-700 leading-relaxed"></p>
+                </div>
+
+                <!-- Quiz Navigation Buttons -->
+                <div class="flex justify-between items-center pt-4 border-t border-slate-100 font-display">
+                    <button id="btn-quiz-prev" onclick="stepQuestion(-1)" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-100 font-bold text-xs text-slate-600 transition">
+                        <i class="fa-solid fa-chevron-left mr-1"></i> ย้อนกลับ
+                    </button>
+                    <button id="btn-quiz-next" onclick="stepQuestion(1)" class="px-6 py-2.5 rounded-xl police-gradient text-white font-bold text-xs shadow-md hover:opacity-95 transition">
+                        ข้อถัดไป <i class="fa-solid fa-chevron-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 6. RESULT SCREEN -->
+        <!-- ========================================== -->
+        <section id="screen-result" class="hidden space-y-8 py-6 animate-fade-in">
+            <div class="max-w-xl mx-auto bg-white rounded-3xl border border-slate-200 card-shadow p-8 sm:p-12 text-center space-y-6">
+                <div class="w-20 h-20 bg-gold-100 text-gold-600 rounded-full flex items-center justify-center text-4xl mx-auto">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+
+                <div class="space-y-2">
+                    <h2 class="font-display font-black text-2xl sm:text-3xl text-police-900">สรุปผลการทำแบบทดสอบ</h2>
+                    <p class="text-xs sm:text-sm text-slate-500">ผลการทดสอบวัดความรู้กฎหมายเบื้องต้น</p>
+                </div>
+
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                    <div class="text-5xl font-black text-police-700 font-display" id="result-score-big">0/20</div>
+                    <div class="text-xs font-bold text-slate-500 mt-1" id="result-percentage">คิดเป็น 0%</div>
+                </div>
+
+                <p id="result-feedback-text" class="text-sm font-medium text-slate-700 leading-relaxed">
+                    ข้อความประเมินผล...
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-3 font-display">
+                    <button onclick="switchTab('quiz')" class="flex-1 py-3 bg-police-700 hover:bg-police-800 text-white rounded-xl font-bold text-xs shadow-md transition">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> ทำข้อสอบใหม่อีกครั้ง
+                    </button>
+                    <button onclick="switchTab('book')" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-xs transition">
+                        <i class="fa-solid fa-book-open mr-1"></i> กลับไปอ่านตำรา
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- CUSTOM MODAL ALERT SYSTEM (Replaces alert) -->
+    <div id="custom-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center space-y-4 shadow-2xl border border-slate-100">
+            <div id="modal-icon" class="w-14 h-14 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mx-auto">
+                <i class="fa-solid fa-circle-exclamation"></i>
+            </div>
+            <h3 id="modal-title" class="font-display font-bold text-lg text-police-900">แจ้งเตือน</h3>
+            <p id="modal-message" class="text-xs sm:text-sm text-slate-600 leading-relaxed">ข้อความแจ้งเตือน...</p>
+            <button onclick="closeModal()" class="w-full py-2.5 bg-police-700 hover:bg-police-800 text-white font-display font-bold text-xs rounded-xl transition">
+                ตกลง / รับทราบ
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* ==========================================
+           1. BOOK DATABASE (คลังหนังสือฉบับเต็ม)
+           ========================================== */
+        const bookChapters = [
+            {
+                id: "ch1",
+                title: "บทที่ 1: กฎหมายอาญา - ภาคทั่วไป",
+                content: `
+                    <div class="space-y-4">
+                        <span class="px-3 py-1 bg-police-100 text-police-800 font-bold text-xs rounded-md">หมวดความรู้พื้นฐาน</span>
+                        <h2 class="font-display font-bold text-2xl text-police-900">บทที่ 1: กฎหมายอาญา - ภาคทั่วไป</h2>
+                        <hr class="border-slate-200">
+                        
+                        <h3 class="font-bold text-lg text-police-800">1.1 โทษทางอาญา 5 สถาน (มาตรา 18)</h3>
+                        <p class="text-sm">ประมวลกฎหมายอาญา มาตรา 18 กำหนดโทษทางอาญาไว้เรียงตามลำดับจาก<b>หนักไปเบา</b>อย่างชัดเจน ดังนี้:</p>
+                        <ol class="list-decimal pl-5 space-y-1 text-sm font-medium text-slate-700">
+                            <li><b>ประหารชีวิต:</b> นำไปฉีดยาหรือสารพิษให้ตาย (งดใช้กับผู้เยาว์อายุไม่ถึง 18 ปี)</li>
+                            <li><b>จำคุก:</b> นำตัวไปขังไว้ในเรือนจำ</li>
+                            <li><b>กักขัง:</b> ขังไว้ ณ สถานที่กักขังที่ไม่ใช่เรือนจำ (เช่น บ้าน หรือสถานพักพิง)</li>
+                            <li><b>ปรับ:</b> ชำระเงินตามจำนวนที่กฎหมายกำหนดต่อศาล</li>
+                            <li><b>ริบทรัพย์สิน:</b> ริบทรัพย์ที่ใช้/มีไว้เพื่อใช้ในการกระทำความผิด หรือได้มาจากการกระทำความผิด</li>
+                        </ol>
+
+                        <div class="p-4 bg-amber-50 border-l-4 border-amber-500 rounded-r-xl text-xs sm:text-sm text-amber-900 my-4">
+                            <b>💡 ข้อสังเกตสอบบ่อย:</b> "กักบริเวณ" หรือ "ยึดทรัพย์" <span class="text-rose-600 font-bold">ไม่ใช่</span> โทษทางอาญาตามมาตรา 18
+                        </div>
+
+                        <h3 class="font-bold text-lg text-police-800 pt-2">1.2 โครงสร้างความรับผิดทางอาญา (เจตนา / ประมาท)</h3>
+                        <p class="text-sm">• <b>กระทำโดยเจตนา (มาตรา 59 วรรคสอง):</b> ได้แก่ กระทำโดยรู้สำนึกในการที่กระทำและในขณะเดียวกันผู้กระทำประสงค์ต่อผล หรือย่อมเล็งเห็นผลของการกระทำนั้น</p>
+                        <p class="text-sm">• <b>กระทำโดยประมาท (มาตรา 59 วรรคสี่):</b> กระทำความผิดมิใช่โดยเจตนา แต่กระทำโดยปราศจากความระมัดระวังซึ่งบุคคลในภาวะเช่นนั้นจักต้องมีตามวิสัยและพฤติการณ์</p>
+                        <p class="text-sm">• <b>การกระทำโดยพลาด (มาตรา 60):</b> ตั้งใจทำต่อบุคคลหนึ่ง แต่ผลไปเกิดกับอีกบุคคลหนึ่ง ถือว่ามีเจตนากระทำต่อบุคคลผู้ได้รับผลร้ายนั้นด้วย (โอนเจตนา)</p>
+
+                        <h3 class="font-bold text-lg text-police-800 pt-2">1.3 เหตุยกเว้นความผิด & เหตุยกเว้นโทษ</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <b class="text-police-700 font-display">ป้องกันโดยชอบด้วยกฎหมาย (ม.68)</b>
+                                <p class="mt-1">ไม่มีความผิดเลย! ป้องกันสิทธิของตน/ผู้อื่น ให้พ้นภยันตรายอันชนชั้นใกล้จะถึง และสมควรแก่เหตุ</p>
+                            </div>
+                            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <b class="text-police-700 font-display">การกระทำด้วยความจำเป็น (ม.67)</b>
+                                <p class="mt-1">มีความผิดแต่ไม่ต้องรับโทษ! ถูกบังคับหรือเพื่อให้พ้นภยันตรายที่ไม่อาจหลีกเลี่ยงได้</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: "ch2",
+                title: "บทที่ 2: ความผิดเกี่ยวกับทรัพย์ & ชีวิตร่างกาย",
+                content: `
+                    <div class="space-y-4">
+                        <span class="px-3 py-1 bg-police-100 text-police-800 font-bold text-xs rounded-md">หมวดฐานความผิด</span>
+                        <h2 class="font-display font-bold text-2xl text-police-900">บทที่ 2: ความผิดเกี่ยวกับทรัพย์ และชีวิตร่างกาย</h2>
+                        <hr class="border-slate-200">
+
+                        <h3 class="font-bold text-lg text-police-800">2.1 ตารางเปรียบเทียบความผิดเกี่ยวกับทรัพย์ (ออกสอบมากที่สุด)</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                                <thead>
+                                    <tr class="bg-police-700 text-white font-display">
+                                        <th class="p-2.5 border border-police-600">ฐานความผิด</th>
+                                        <th class="p-2.5 border border-police-600">การกระทำสำคัญ</th>
+                                        <th class="p-2.5 border border-police-600">จุดต่างที่ต้องจำ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="p-2.5 font-bold">ลักทรัพย์ (ม.334)</td>
+                                        <td class="p-2.5">เอาทรัพย์ผู้อื่นไปโดยทุจริต</td>
+                                        <td class="p-2.5 text-slate-500">ไม่มีการใช้กำลังหรือขู่ข็ญ</td>
+                                    </tr>
+                                    <tr class="border-b bg-slate-50">
+                                        <td class="p-2.5 font-bold">วิ่งราวทรัพย์ (ม.336)</td>
+                                        <td class="p-2.5">ลักทรัพย์โดยฉกฉวยเอาซึ่งหน้า</td>
+                                        <td class="p-2.5 text-police-700 font-bold">ต้องฉกฉวยต่อหน้าเจ้าของ</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-2.5 font-bold">ชิงทรัพย์ (ม.339)</td>
+                                        <td class="p-2.5">ลักทรัพย์ + ทำร้าย/ขู่ว่าจะทำร้ายทันที</td>
+                                        <td class="p-2.5 text-police-700 font-bold">ทำคนเดียวหรือ 2 คน</td>
+                                    </tr>
+                                    <tr class="border-b bg-slate-50">
+                                        <td class="p-2.5 font-bold">ปล้นทรัพย์ (ม.340)</td>
+                                        <td class="p-2.5">ชิงทรัพย์โดยร่วมกันทำ</td>
+                                        <td class="p-2.5 text-rose-600 font-bold">ตั้งแต่ 3 คนขึ้นไป</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-2.5 font-bold">ยักยอกทรัพย์ (ม.352)</td>
+                                        <td class="p-2.5">ครอบครองทรัพย์ผู้อื่นอยู่แล้วเบียดบังเอาไป</td>
+                                        <td class="p-2.5 text-slate-500">เดิมทรัพย์อยู่ในมือเราอยู่แล้ว</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="font-bold text-lg text-police-800 pt-2">2.2 ความผิดเกี่ยวกับชีวิตและร่างกาย</h3>
+                        <p class="text-sm">• <b>ฆ่าผู้อื่นโดยเจตนา (ม.288):</b> โทษประหารชีวิต จำคุกตลอดชีวิต หรือจำคุก 15-20 ปี</p>
+                        <p class="text-sm">• <b>ฆ่าผู้อื่นโดยไตร่ตรองไว้ก่อน (ม.289):</b> วางแผน คิดทบทวนล่วงหน้า โทษ <span class="text-rose-600 font-bold">ประหารชีวิตสถานเดียว</span></p>
+                        <p class="text-sm">• <b>ทำร้ายร่างกายบาดเจ็บสาหัส (ม.297):</b> ตาบอด, หูตระหนัก, เสียแขนขา, แท้งลูก, จิตพิการ, ป่วยเจ็บเรื้อรังเกิน 20 วัน</p>
+                    </div>
+                `
+            },
+            {
+                id: "ch3",
+                title: "บทที่ 3: วิธีพิจารณาความอาญา (วิ.อาญา)",
+                content: `
+                    <div class="space-y-4">
+                        <span class="px-3 py-1 bg-police-100 text-police-800 font-bold text-xs rounded-md">หมวดอำนาจตำรวจ</span>
+                        <h2 class="font-display font-bold text-2xl text-police-900">บทที่ 3: กฎหมายวิธีพิจารณาความอาญา (ป.วิ.อ.)</h2>
+                        <hr class="border-slate-200">
+
+                        <h3 class="font-bold text-lg text-police-800">3.1 การจับ และการออกหมายจับ</h3>
+                        <p class="text-sm">• <b>หลักทั่วไป:</b> การจับบุคคล ต้องมี <span class="text-police-700 font-bold">"หมายจับของศาล"</span></p>
+                        <p class="text-sm">• <b>ข้อยกเว้นจับได้โดยไม่ต้องมีหมายจับ (ม.78):</b></p>
+                        <ul class="list-disc pl-5 text-sm space-y-1 text-slate-700">
+                            <li>เมื่อบุคคลนั้นได้กระทำ <span class="font-bold text-rose-600">"ความผิดซึ่งหน้า"</span></li>
+                            <li>พบบุคคลพร้อมสิ่งของที่ได้มาจากการทำผิด หรือเครื่องมือใช้ทำผิด</li>
+                            <li>มีเหตุสงสัยว่าบุคคลนั้นจะหลบหนี หรือไม่มีที่อยู่เป็นหลักแหล่ง</li>
+                        </ul>
+
+                        <h3 class="font-bold text-lg text-police-800 pt-2">3.2 การค้นในที่รโหฐาน</h3>
+                        <p class="text-sm">• <b>ที่รโหฐาน:</b> สถานที่ที่ไม่ใช่ที่สาธารณสถาน (เช่น บ้านพักอาศัย ห้องนอน)</p>
+                        <p class="text-sm">• <b>เวลากลางคืน (ม.96):</b> ห้ามค้นในที่รโหฐานในเวลากลางคืน เว้นแต่มีเหตุฉุกเฉินอย่างยิ่ง หรือเป็นการจับผู้ต้องหาที่หนีซ่อนตัว</p>
+
+                        <h3 class="font-bold text-lg text-police-800 pt-2">3.3 สิทธิของราษฎรในการจับกุม</h3>
+                        <p class="text-sm">ราษฎรทั่วไปจับกุมผู้กระทำผิดไม่ได้ เว้นแต่เป็นกรณี <b>ความผิดซึ่งหน้า</b> และความผิดนั้นระบุไว้ในบัญชีแนบท้าย ป.วิ.อ. (เช่น ฆ่าคน, ลักทรัพย์, ชิงทรัพย์, ปล้นทรัพย์, ข่มขืน)</p>
+                    </div>
+                `
+            },
+            {
+                id: "ch4",
+                title: "บทที่ 4: กฎหมายแพ่งและพาณิชย์ (ป.พ.พ.)",
+                content: `
+                    <div class="space-y-4">
+                        <span class="px-3 py-1 bg-police-100 text-police-800 font-bold text-xs rounded-md">หมวดกฎหมายแพ่ง</span>
+                        <h2 class="font-display font-bold text-2xl text-police-900">บทที่ 4: กฎหมายแพ่งและพาณิชย์เบื้องต้น</h2>
+                        <hr class="border-slate-200">
+
+                        <h3 class="font-bold text-lg text-police-800">4.1 สภาพบุคคลและการบรรลุนิติภาวะ</h3>
+                        <p class="text-sm">• <b>สภาพบุคคล (ม.15):</b> เริ่มตั้งแต่เมื่อ <span class="font-bold text-police-700">"คลอดแล้วอยู่รอดเป็นทารก"</span> และสิ้นสุดลงเมื่อตาย</p>
+                        <p class="text-sm">• <b>การบรรลุนิติภาวะ (ม.19-20):</b></p>
+                        <ul class="list-disc pl-5 text-sm space-y-1 text-slate-700">
+                            <li>เมื่ออายุครบ <b>20 ปีบริบูรณ์</b></li>
+                            <li>เมื่อทำการสมรสโดยชอบด้วยกฎหมาย (ชาย-หญิง อายุครบ 17 ปีบริบูรณ์ขึ้นไป และได้รับการยินยอม)</li>
+                        </ul>
+
+                        <h3 class="font-bold text-lg text-police-800 pt-2">4.2 พินัยกรรมของผู้เยาว์</h3>
+                        <p class="text-sm">ผู้เยาว์สามารถทำพินัยกรรมได้ด้วยตนเองเมื่ออายุครบ <span class="font-bold text-police-700">15 ปีบริบูรณ์</span> (หากอายุไม่ถึง 15 ปี พินัยกรรมเป็นโมฆะทันที)</p>
+
+                        <h3 class="font-bold text-lg text-police-800 pt-2">4.3 มูลละเมิด (มาตรา 420)</h3>
+                        <p class="text-sm">ผู้ใดจงใจหรือประมาทเลินเล่อ ทำต่อบุคคลอื่นโดยผิดกฎหมาย ให้เขาเสียหายแก่ชีวิต ร่างกาย อนามัย เสรีภาพ ทรัพย์สิน ต้องชดใช้ค่าสินไหมทดแทน (อายุความฟ้องร้องละเมิดคือ <b>1 ปี</b> นับแต่วันรู้เรื่องและรู้ตัว หรือ <b>10 ปี</b> นับแต่วันทำละเมิด)</p>
+                    </div>
+                `
+            },
+            {
+                id: "ch5",
+                title: "บทที่ 5: พ.ร.บ.ตำรวจแห่งชาติ & จริยธรรม",
+                content: `
+                    <div class="space-y-4">
+                        <span class="px-3 py-1 bg-police-100 text-police-800 font-bold text-xs rounded-md">หมวดระเบียบตำรวจ</span>
+                        <h2 class="font-display font-bold text-2xl text-police-900">บทที่ 5: พ.ร.บ.ตำรวจแห่งชาติ และจริยธรรมตำรวจ</h2>
+                        <hr class="border-slate-200">
+
+                        <h3 class="font-bold text-lg text-police-800">5.1 วินัยและการรักษาวินัย</h3>
+                        <p class="text-sm">ข้าราชการตำรวจต้องปฏิบัติตามคำสั่งของผู้บังคับบัญชาซึ่งสั่งในหน้าที่การงานโดยชอบด้วยกฎหมายและระเบียบของทางราชการ</p>
+
+                        <h3 class="font-bold text-lg text-police-800 pt-2">5.2 โทษทางวินัยตำรวจมี 5 สถาน</h3>
+                        <ol class="list-decimal pl-5 text-sm space-y-1 text-slate-700 font-medium">
+                            <li>ภาคทัณฑ์</li>
+                            <li>ทัณฑกรรม (ซ่อม/ฝึก)</li>
+                            <li>กักขัง</li>
+                            <li>ปลดออก (ได้รับบำเหน็จบำนาญ)</li>
+                            <li>ไล่ออก (ไม่ได้รับบำเหน็จบำนาญ)</li>
+                        </ol>
+                    </div>
+                `
+            }
+        ];
+
+        /* ==========================================
+           2. QUIZ DATABASE (คลังข้อสอบมาตรฐาน)
+           ========================================== */
+        const quizQuestions = [
+            { cat: "อาญา", q: "โทษทางอาญาตามประมวลกฎหมายอาญา มาตรา 18 ข้อใดเรียงลำดับจากหนักไปเบาได้ถูกต้อง?", opt: ["ประหารชีวิต จำคุก กักขัง ปรับ ริบทรัพย์สิน", "ประหารชีวิต จำคุก ปรับ กักขัง ริบทรัพย์สิน", "จำคุก ประหารชีวิต กักขัง ปรับ ริบทรัพย์สิน", "ประหารชีวิต กักขัง จำคุก ปรับ ริบทรัพย์สิน"], ans: 0, exp: "ป.อ. มาตรา 18 กำหนดโทษทางอาญาไว้ 5 สถาน เรียงจากหนักไปเบา ได้แก่ 1.ประหารชีวิต 2.จำคุก 3.กักขัง 4.ปรับ 5.ริบทรัพย์สิน" },
+            { cat: "แพ่ง", q: "สภาพบุคคลตามประมวลกฎหมายแพ่งและพาณิชย์ เริ่มต้นและสิ้นสุดลงเมื่อใด?", opt: ["เริ่มเมื่อแจ้งเกิด สิ้นสุดเมื่ออกใบมรณบัตร", "เริ่มเมื่อปฏิสนธิในครรภ์ สิ้นสุดเมื่อตาย", "เริ่มเมื่อคลอดแล้วอยู่รอดเป็นทารก สิ้นสุดเมื่อตาย", "เริ่มเมื่ออายุครบ 1 ปี สิ้นสุดเมื่อตาย"], ans: 2, exp: "ป.พ.พ. มาตรา 15 สภาพบุคคลย่อมเริ่มแต่เมื่อคลอดแล้วอยู่รอดเป็นทารก และสิ้นสุดลงเมื่อตาย" },
+            { cat: "วิอาญา", q: "บุคคลใดมีอำนาจในการออก 'หมายจับ' หรือ 'หมายค้น' ตาม ป.วิ.อ.?", opt: ["พนักงานสอบสวน", "ผู้กำกับการสถานีตำรวจ", "พนักงานอัยการ", "ศาล"], ans: 3, exp: "ตาม ป.วิ.อ. การออกหมายจับ หมายค้น หมายขัง หมายจำคุก เป็นอำนาจของ 'ศาล' เท่านั้น" },
+            { cat: "อาญา", q: "นาย ก. ตั้งใจยิง นาย ข. แต่วิถีกระสุนพลาดไปโดน นาย ค. ตาย นาย ก. ต้องรับผิดชอบอย่างไร?", opt: ["ไม่มีความผิดเพราะขาดเจตนาต่อ นาย ค.", "มีความผิดฐานฆ่า นาย ค. โดยประมาท", "มีความผิดฐานฆ่า นาย ค. โดยเจตนา (โดยพลาด)", "รับผิดเฉพาะค่าเสียหายทางแพ่ง"], ans: 2, exp: "ตาม ป.อ. มาตรา 60 ถือเป็นการกระทำโดยพลาด ให้ถือว่าผู้กระทำมีเจตนากระทำต่อบุคคลผู้ได้รับผลร้ายนั้นด้วย" },
+            { cat: "อาญา", q: "นาย เอก วิ่งกระชากสร้อยคอทองคำของนาง โท แล้ววิ่งหนีไปทันที นาย เอก มีความผิดฐานใด?", opt: ["ลักทรัพย์", "วิ่งราวทรัพย์", "ชิงทรัพย์", "ปล้นทรัพย์"], ans: 1, exp: "ป.อ. มาตรา 336 ผู้ใดลักทรัพย์โดยฉกฉวยเอาซึ่งหน้า ผู้นั้นมีความผิดฐานวิ่งราวทรัพย์" },
+            { cat: "วิอาญา", q: "การทำการค้นในที่รโหฐานในเวลากลางคืน เจ้าพนักงานจะกระทำได้ในกรณีใด?", opt: ["ทำได้เสมอถ้ามียศตั้งแต่ ร้อยตำรวจตรี ขึ้นไป", "ทำไม่ได้เด็ดขาดทุกกรณี", "ทำได้เมื่อมีเหตุฉุกเฉินอย่างยิ่ง หรือมีกฎหมายยกเว้น", "ทำได้เมื่อได้รับความยินยอมจากเพื่อนบ้าน"], ans: 2, exp: "ป.วิ.อ. มาตรา 96 ห้ามค้นที่รโหฐานกลางคืน เว้นแต่มีเหตุฉุกเฉินอย่างยิ่ง หรือค้นจับผู้ต้องหาที่หนีเข้าไป" },
+            { cat: "แพ่ง", q: "ผู้เยาว์สามารถทำ 'พินัยกรรม' ได้ด้วยตนเองโดยสมบูรณ์เมื่อมีอายุครบกี่ปีบริบูรณ์?", opt: ["15 ปีบริบูรณ์", "17 ปีบริบูรณ์", "18 ปีบริบูรณ์", "20 ปีบริบูรณ์"], ans: 0, exp: "ป.พ.พ. มาตรา 25 ผู้เยาว์อาจทำพินัยกรรมได้เมื่อมีอายุ 15 ปีบริบูรณ์ หากอายุไม่ถึง พินัยกรรมนั้นเป็นโมฆะ" },
+            { cat: "อาญา", q: "การลักทรัพย์โดยร่วมกันกระทำความผิดด้วยกันตั้งแต่ 3 คนขึ้นไป และมีการชิงทรัพย์ คือความผิดฐานใด?", opt: ["กรรโชกทรัพย์", "ซ่องโจร", "ปล้นทรัพย์", "ฉ้อโกงประชาชน"], ans: 2, exp: "ป.อ. มาตรา 340 การชิงทรัพย์โดยร่วมกันกระทำความผิดตั้งแต่ 3 คนขึ้นไป เป็นความผิดฐานปล้นทรัพย์" },
+            { cat: "อาญา", q: "การป้องกันสิทธิของตนให้พ้นภยันตรายที่ใกล้จะถึง และได้กระทำพอสมควรแก่เหตุ มีผลทางกฎหมายอย่างไร?", opt: ["ไม่มีความผิดเลย", "มีความผิดแต่ไม่ต้องรับโทษ", "มีความผิดแต่ศาลจะลดโทษให้", "ถือเป็นเหตุบรรเทาโทษ"], ans: 0, exp: "ป.อ. มาตรา 68 การป้องกันโดยชอบด้วยกฎหมาย ผู้กระทำ 'ไม่มีความผิด'" },
+            { cat: "แพ่ง", q: "สิทธิเรียกร้องค่าเสียหายอันเกิดแต่มูลละเมิด มีอายุความกี่ปีนับแต่วันที่รู้ถึงการละเมิดและรู้ตัวผู้กระทำ?", opt: ["1 ปี", "2 ปี", "5 ปี", "10 ปี"], ans: 0, exp: "ป.พ.พ. มาตรา 448 คดีละเมิดมีอายุความ 1 ปีนับแต่วันที่รู้ถึงการละเมิดและรู้ตัวผู้ต้องชดใช้ หรือ 10 ปีนับแต่วันทำละเมิด" }
+        ];
+
+        /* ==========================================
+           3. FLASHCARDS DATABASE
+           ========================================== */
+        const flashcardsData = [
+            { q: "โทษทางอาญาเรียงจากหนักไปเบา?", a: "ประหารชีวิต -> จำคุก -> กักขัง -> ปรับ -> ริบทรัพย์สิน", detail: "ประมวลกฎหมายอาญา มาตรา 18" },
+            { q: "สภาพบุคคลเริ่มและสิ้นสุดเมื่อใด?", a: "เริ่มเมื่อคลอดแล้วอยู่รอดเป็นทารก สิ้นสุดเมื่อตาย", detail: "ประมวลกฎหมายแพ่งและพาณิชย์ มาตรา 15" },
+            { q: "ความผิดฐาน 'วิ่งราวทรัพย์' คืออะไร?", a: "การลักทรัพย์โดย 'ฉกฉวยเอาซึ่งหน้า'", detail: "ประมวลกฎหมายอาญา มาตรา 336" },
+            { q: "การ 'ปล้นทรัพย์' ต้องมีผู้ร่วมทำผิดกี่คน?", a: "ตั้งแต่ 3 คนขึ้นไป", detail: "ชิงทรัพย์ + ร่วมมือกันตั้งแต่ 3 คน (มาตรา 340)" },
+            { q: "ใครมีอำนาจออก 'หมายจับ/หมายค้น'?", a: "ศาล เท่านั้น", detail: "ตามประมวลกฎหมายวิธีพิจารณาความอาญา" },
+            { q: "ผู้เยาว์ทำพินัยกรรมได้เมื่ออายุเท่าใด?", a: "15 ปีบริบูรณ์", detail: "ไม่ต้องได้รับความยินยอมจากใคร (มาตรา 25)" }
+        ];
+
+        /* ==========================================
+           4. STATE MANAGEMENT & APPLICATION LOGIC
+           ========================================== */
+        let activeTab = 'home';
+        let fontSizeLevel = 0; // -1, 0, 1, 2
+        let currentChapterIdx = 0;
+        
+        // Quiz state
+        let filteredQuestions = [...quizQuestions];
+        let currentQIdx = 0;
+        let userAnswers = [];
+        let scoreLive = 0;
+
+        // Flashcards state
+        let currentFcIdx = 0;
+        let isFcFlipped = false;
+
+        // Speed Game state
+        let speedTimerInt = null;
+        let speedTimeLeft = 60;
+        let speedScore = 0;
+        let speedActiveQ = null;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderChapterList();
+            loadBookChapter(0);
+            renderFlashcard();
+            initMatchGame();
+        });
+
+        // Tab Switcher
+        function switchTab(tabId) {
+            activeTab = tabId;
+            const screens = ['home', 'book', 'techniques', 'games', 'quiz', 'result'];
+            screens.forEach(s => {
+                const el = document.getElementById('screen-' + s);
+                if (el) el.classList.add('hidden');
+            });
+            
+            const targetScreen = document.getElementById('screen-' + tabId);
+            if (targetScreen) targetScreen.classList.remove('hidden');
+
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+
+            // Tab specific initializations
+            if (tabId === 'quiz') {
+                resetQuiz();
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Digital Book Functions
+        function renderChapterList() {
+            const container = document.getElementById('chapter-list');
+            container.innerHTML = '';
+            bookChapters.forEach((ch, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-3 rounded-xl transition flex items-center justify-between ${idx === currentChapterIdx ? 'bg-police-700 text-white font-bold shadow-sm' : 'hover:bg-slate-100 text-slate-700'}`;
+                btn.onclick = () => loadBookChapter(idx);
+                btn.innerHTML = `
+                    <span class="truncate pr-2">${ch.title}</span>
+                    <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
+                `;
+                container.appendChild(btn);
+            });
+        }
+
+        function loadBookChapter(idx) {
+            currentChapterIdx = idx;
+            renderChapterList();
+            const reader = document.getElementById('book-reader');
+            reader.innerHTML = bookChapters[idx].content;
+        }
+
+        function adjustFontSize(delta) {
+            fontSizeLevel = Math.max(-1, Math.min(2, fontSizeLevel + delta));
+            const reader = document.getElementById('book-reader');
+            const sizes = ['text-xs', 'text-sm', 'text-base', 'text-lg'];
+            reader.className = `bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-sm leading-relaxed space-y-8 text-slate-800 transition-all ${sizes[fontSizeLevel + 1]}`;
+        }
+
+        function filterBookContent() {
+            const query = document.getElementById('book-search').value.toLowerCase();
+            if (!query) {
+                loadBookChapter(currentChapterIdx);
+                return;
+            }
+            const currentContent = bookChapters[currentChapterIdx].content;
+            if (currentContent.toLowerCase().includes(query)) {
+                // Keep content
+            } else {
+                // Search across other chapters
+                const foundIdx = bookChapters.findIndex(ch => ch.content.toLowerCase().includes(query) || ch.title.toLowerCase().includes(query));
+                if (foundIdx !== -1) {
+                    loadBookChapter(foundIdx);
+                }
+            }
+        }
+
+        // Game Selector
+        function selectGame(gameType) {
+            ['flashcard', 'match', 'speed'].forEach(g => {
+                document.getElementById(`game-${g}-view`).classList.add('hidden');
+                document.getElementById(`tab-game-${g}`).className = "px-3 py-1.5 rounded-lg font-bold transition text-slate-600 hover:bg-slate-200";
+            });
+
+            document.getElementById(`game-${gameType}-view`).classList.remove('hidden');
+            document.getElementById(`tab-game-${gameType}`).className = "px-3 py-1.5 rounded-lg font-bold transition bg-white text-police-900 shadow-sm";
+        }
+
+        // 1. Flashcards Logic
+        function renderFlashcard() {
+            const card = flashcardsData[currentFcIdx];
+            document.getElementById('fc-counter').innerText = `${currentFcIdx + 1}/${flashcardsData.length}`;
+            document.getElementById('fc-question').innerText = card.q;
+            document.getElementById('fc-answer').innerText = card.a;
+            document.getElementById('fc-detail').innerText = card.detail;
+            
+            // Reset flip
+            isFcFlipped = false;
+            document.getElementById('flashcard-inner').classList.remove('rotate-y-180');
+        }
+
+        function flipFlashcard() {
+            isFcFlipped = !isFcFlipped;
+            const inner = document.getElementById('flashcard-inner');
+            if (isFcFlipped) inner.classList.add('rotate-y-180');
+            else inner.classList.remove('rotate-y-180');
+        }
+
+        function nextFlashcard() {
+            currentFcIdx = (currentFcIdx + 1) % flashcardsData.length;
+            renderFlashcard();
+        }
+
+        function prevFlashcard() {
+            currentFcIdx = (currentFcIdx - 1 + flashcardsData.length) % flashcardsData.length;
+            renderFlashcard();
+        }
+
+        // 2. Term Match Logic
+        const matchPairs = [
+            { id: 1, term: "วิ่งราวทรัพย์", def: "ลักทรัพย์ + ฉกฉวยเอาซึ่งหน้า" },
+            { id: 2, term: "ปล้นทรัพย์", def: "ชิงทรัพย์ร่วมกันตั้งแต่ 3 คนขึ้นไป" },
+            { id: 3, term: "ยักยอกทรัพย์", def: "ครอบครองทรัพย์ผู้อื่นไว้แล้วเบียดบังเอา" },
+            { id: 4, term: "สภาพบุคคล", def: "เริ่มเมื่อคลอดแล้วอยู่รอดเป็นทารก" }
+        ];
+
+        let selectedLeft = null;
+        let selectedRight = null;
+        let completedPairs = [];
+
+        function initMatchGame() {
+            completedPairs = [];
+            selectedLeft = null;
+            selectedRight = null;
+            const container = document.getElementById('match-grid');
+            container.innerHTML = '';
+
+            const lefts = [...matchPairs].sort(() => Math.random() - 0.5);
+            const rights = [...matchPairs].sort(() => Math.random() - 0.5);
+
+            let html = `<div class="space-y-2">`;
+            lefts.forEach(item => {
+                html += `<button onclick="clickMatchItem('left', ${item.id})" id="match-left-${item.id}" class="w-full p-3 bg-white border-2 border-slate-200 rounded-xl font-display font-bold text-xs sm:text-sm text-police-900 hover:border-police-600 text-left transition">${item.term}</button>`;
+            });
+            html += `</div><div class="space-y-2">`;
+            rights.forEach(item => {
+                html += `<button onclick="clickMatchItem('right', ${item.id})" id="match-right-${item.id}" class="w-full p-3 bg-white border-2 border-slate-200 rounded-xl text-xs sm:text-sm text-slate-700 hover:border-police-600 text-left transition">${item.def}</button>`;
+            });
+            html += `</div>`;
+            container.innerHTML = html;
+        }
+
+        function clickMatchItem(side, id) {
+            if (completedPairs.includes(id)) return;
+
+            if (side === 'left') {
+                if (selectedLeft) document.getElementById(`match-left-${selectedLeft}`).classList.remove('border-gold-500', 'bg-gold-50');
+                selectedLeft = id;
+                document.getElementById(`match-left-${id}`).classList.add('border-gold-500', 'bg-gold-50');
+            } else {
+                if (selectedRight) document.getElementById(`match-right-${selectedRight}`).classList.remove('border-gold-500', 'bg-gold-50');
+                selectedRight = id;
+                document.getElementById(`match-right-${id}`).classList.add('border-gold-500', 'bg-gold-50');
+            }
+
+            if (selectedLeft && selectedRight) {
+                if (selectedLeft === selectedRight) {
+                    // Match Success!
+                    document.getElementById(`match-left-${selectedLeft}`).className = "w-full p-3 bg-emerald-50 border-2 border-emerald-500 text-emerald-800 rounded-xl font-bold text-xs opacity-50 cursor-default text-left";
+                    document.getElementById(`match-right-${selectedRight}`).className = "w-full p-3 bg-emerald-50 border-2 border-emerald-500 text-emerald-800 rounded-xl text-xs opacity-50 cursor-default text-left";
+                    completedPairs.push(selectedLeft);
+                    selectedLeft = null;
+                    selectedRight = null;
+
+                    if (completedPairs.length === matchPairs.length) {
+                        showModal("🎉 ยินดีด้วย!", "คุณจับคู่หลักกฎหมายถูกต้องครบทุกข้อ!", "success");
+                    }
+                } else {
+                    // Wrong match
+                    const l = selectedLeft, r = selectedRight;
+                    setTimeout(() => {
+                        if (document.getElementById(`match-left-${l}`)) document.getElementById(`match-left-${l}`).classList.remove('border-gold-500', 'bg-gold-50');
+                        if (document.getElementById(`match-right-${r}`)) document.getElementById(`match-right-${r}`).classList.remove('border-gold-500', 'bg-gold-50');
+                    }, 400);
+                    selectedLeft = null;
+                    selectedRight = null;
+                }
+            }
+        }
+
+        // 3. Speed Game Logic
+        const speedQuestions = [
+            { q: "การออกหมายจับเป็นอำนาจของสารวัตรสอบสวน?", ans: false },
+            { q: "ความผิดฐานปล้นทรัพย์ ต้องร่วมกันตั้งแต่ 3 คนขึ้นไป?", ans: true },
+            { q: "ผู้เยาว์ทำพินัยกรรมได้ตั้งแต่อายุ 15 ปีบริบูรณ์?", ans: true },
+            { q: "การยึดทรัพย์ เป็นโทษทางอาญาตามมาตรา 18?", ans: false },
+            { q: "วิ่งราวทรัพย์ คือการลักทรัพย์โดยใช้กำลังประทุษร้าย?", ans: false }
+        ];
+
+        function startSpeedGame() {
+            speedTimeLeft = 60;
+            speedScore = 0;
+            document.getElementById('speed-score').innerText = `คะแนน: 0`;
+            document.getElementById('btn-start-speed').classList.add('hidden');
+            document.getElementById('btn-speed-true').disabled = false;
+            document.getElementById('btn-speed-false').disabled = false;
+
+            nextSpeedQuestion();
+
+            clearInterval(speedTimerInt);
+            speedTimerInt = setInterval(() => {
+                speedTimeLeft--;
+                document.getElementById('speed-timer').innerText = `⏱️ ${speedTimeLeft}s`;
+                if (speedTimeLeft <= 0) {
+                    clearInterval(speedTimerInt);
+                    document.getElementById('btn-speed-true').disabled = true;
+                    document.getElementById('btn-speed-false').disabled = true;
+                    document.getElementById('btn-start-speed').classList.remove('hidden');
+                    document.getElementById('speed-question').innerText = `หมดเวลา! คะแนนรวมที่คุณทำได้: ${speedScore} คะแนน`;
+                }
+            }, 1000);
+        }
+
+        function nextSpeedQuestion() {
+            const rnd = Math.floor(Math.random() * speedQuestions.length);
+            speedActiveQ = speedQuestions[rnd];
+            document.getElementById('speed-question').innerText = speedActiveQ.q;
+        }
+
+        function answerSpeed(userChoice) {
+            if (!speedActiveQ || speedTimeLeft <= 0) return;
+            if (userChoice === speedActiveQ.ans) {
+                speedScore += 10;
+            } else {
+                speedScore = Math.max(0, speedScore - 5);
+            }
+            document.getElementById('speed-score').innerText = `คะแนน: ${speedScore}`;
+            nextSpeedQuestion();
+        }
+
+        // Quiz System Functions
+        function resetQuiz() {
+            currentQIdx = 0;
+            scoreLive = 0;
+            filterQuizCategory();
+        }
+
+        function filterQuizCategory() {
+            const cat = document.getElementById('quiz-category-filter').value;
+            if (cat === 'all') {
+                filteredQuestions = [...quizQuestions];
+            } else {
+                filteredQuestions = quizQuestions.filter(q => q.cat === cat);
+            }
+            currentQIdx = 0;
+            userAnswers = new Array(filteredQuestions.length).fill(null);
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            if (filteredQuestions.length === 0) return;
+            const q = filteredQuestions[currentQIdx];
+
+            document.getElementById('q-text-main').innerText = `${currentQIdx + 1}. ${q.q}`;
+            document.getElementById('q-category-badge').innerText = `หมวด: ${q.cat}`;
+            document.getElementById('quiz-status-text').innerText = `ข้อที่ ${currentQIdx + 1}/${filteredQuestions.length}`;
+            document.getElementById('quiz-score-live').innerText = `คะแนนสะสม: ${scoreLive}`;
+
+            const pct = ((currentQIdx + 1) / filteredQuestions.length) * 100;
+            document.getElementById('quiz-progress-bar').style.width = `${pct}%`;
+
+            // Choices
+            const optsContainer = document.getElementById('q-options-container');
+            optsContainer.innerHTML = '';
+
+            q.opt.forEach((optText, i) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full p-4 rounded-2xl border-2 text-left font-medium text-xs sm:text-sm flex items-center justify-between transition duration-150";
+
+                if (userAnswers[currentQIdx] !== null) {
+                    btn.disabled = true;
+                    if (i === q.ans) {
+                        btn.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-900', 'font-bold');
+                        btn.innerHTML = `<span>${optText}</span> <i class="fa-solid fa-circle-check text-emerald-600 text-base"></i>`;
+                    } else if (i === userAnswers[currentQIdx]) {
+                        btn.classList.add('bg-rose-50', 'border-rose-400', 'text-rose-900');
+                        btn.innerHTML = `<span>${optText}</span> <i class="fa-solid fa-circle-xmark text-rose-500 text-base"></i>`;
+                    } else {
+                        btn.classList.add('bg-slate-50', 'border-slate-200', 'opacity-50');
+                        btn.innerText = optText;
+                    }
+                } else {
+                    btn.classList.add('bg-white', 'border-slate-200', 'hover:border-police-600', 'hover:bg-police-50/50');
+                    btn.innerText = optText;
+                    btn.onclick = () => selectQuizOption(i);
+                }
+
+                optsContainer.appendChild(btn);
+            });
+
+            // Explainer
+            const explainer = document.getElementById('q-explainer');
+            if (userAnswers[currentQIdx] !== null) {
+                explainer.classList.remove('hidden');
+                if (userAnswers[currentQIdx] === q.ans) {
+                    explainer.className = "p-5 rounded-2xl border-2 bg-emerald-50 border-emerald-200 text-emerald-900";
+                    document.getElementById('q-exp-status').innerHTML = "✅ ถูกต้อง!";
+                } else {
+                    explainer.className = "p-5 rounded-2xl border-2 bg-rose-50 border-rose-200 text-rose-900";
+                    document.getElementById('q-exp-status').innerHTML = `❌ ตอบผิด! (คำตอบที่ถูกคือข้อ ${q.ans + 1})`;
+                }
+                document.getElementById('q-exp-text').innerHTML = `<b>คำอธิบายข้อกฎหมาย:</b> ${q.exp}`;
+            } else {
+                explainer.classList.add('hidden');
+            }
+
+            // Buttons
+            document.getElementById('btn-quiz-prev').disabled = (currentQIdx === 0);
+            if (currentQIdx === filteredQuestions.length - 1) {
+                document.getElementById('btn-quiz-next').innerText = "ดูผลสรุปคะแนน";
+            } else {
+                document.getElementById('btn-quiz-next').innerHTML = `ข้อถัดไป <i class="fa-solid fa-chevron-right ml-1"></i>`;
+            }
+        }
+
+        function selectQuizOption(choiceIdx) {
+            if (userAnswers[currentQIdx] !== null) return;
+            userAnswers[currentQIdx] = choiceIdx;
+            if (choiceIdx === filteredQuestions[currentQIdx].ans) {
+                scoreLive += 1;
+            }
+            renderQuizQuestion();
+        }
+
+        function stepQuestion(direction) {
+            if (currentQIdx + direction >= 0 && currentQIdx + direction < filteredQuestions.length) {
+                currentQIdx += direction;
+                renderQuizQuestion();
+            } else if (currentQIdx + direction === filteredQuestions.length) {
+                // Check if answered all
+                if (userAnswers.includes(null)) {
+                    showModal("ตอบยังไม่ครบ", "กรุณาตอบคำถามให้ครบทุกข้อก่อนดูผลการสอบนะครับ", "warning");
+                } else {
+                    showQuizResult();
+                }
+            }
+        }
+
+        function showQuizResult() {
+            switchTab('result');
+            document.getElementById('result-score-big').innerText = `${scoreLive}/${filteredQuestions.length}`;
+            const pct = Math.round((scoreLive / filteredQuestions.length) * 100);
+            document.getElementById('result-percentage').innerText = `คิดเป็น ${pct}%`;
+
+            const feedback = document.getElementById('result-feedback-text');
+            if (pct >= 80) {
+                feedback.innerHTML = "🏆 <b class='text-emerald-600'>ยอดเยี่ยมมาก!</b> ความรู้กฎหมายของคุณแน่นมาก พร้อมลุยสนามสอบจริงได้สบาย!";
+            } else if (pct >= 60) {
+                feedback.innerHTML = "👍 <b class='text-amber-600'>ผ่านเกณฑ์มาตรฐาน!</b> แต่ควรกลับไปอ่านสรุปฎีกาและตัวบทเพิ่มเติมเพื่อเก็บคะแนนเต็ม";
+            } else {
+                feedback.innerHTML = "📚 <b class='text-rose-600'>ต้องพยายามเพิ่มอีกนิด!</b> แนะนำให้กลับไปอ่านตำราบทเรียนและฝึกเล่นเกมช่วยจำก่อนลองทำอีกครั้ง";
+            }
+        }
+
+        // Custom Modal UI
+        function showModal(title, message, type) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-message').innerText = message;
+            
+            const iconBox = document.getElementById('modal-icon');
+            if (type === 'success') {
+                iconBox.className = "w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mx-auto";
+                iconBox.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+            } else {
+                iconBox.className = "w-14 h-14 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mx-auto";
+                iconBox.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>';
+            }
+
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
